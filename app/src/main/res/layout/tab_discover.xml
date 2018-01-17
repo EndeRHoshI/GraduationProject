@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:weightSum="1">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray"/>
+
+    <ImageView
+        android:layout_width="38dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:scaleType="center"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/tab_discover"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/tab_bottem_text_style"
+        android:text="@string/discover"/>
+    <!--<TextView
+        android:id="@+id/tab_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/actionbar_discover_normal"
+        android:gravity="center"
+        android:text="@string/discover"/>-->
+</LinearLayout>

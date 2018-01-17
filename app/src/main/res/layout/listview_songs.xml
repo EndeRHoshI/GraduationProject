@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="5dp"
+              android:gravity="center"
+              android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/rank_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:ems="3"
+        android:text="01"
+        android:textColor="@color/theme_color"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/rank_songList_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="只只"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/rank_songList_alias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginLeft="3dp"
+                android:text="(电影《五十度飞》插曲)"
+                android:textColor="@color/gray"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/rank_songList_name_singer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="孟明凡-只只"
+            android:textColor="@color/gray"
+            android:textSize="11sp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+
+    <!--tab-->
+    <string name="discover">发现音乐</string>
+    <string name="mymusic">我的音乐</string>
+    <string name="friends">朋友</string>
+    <string name="personal">个人</string>
+
+    <!--personal-->
+    <string name="trends">动态</string>
+    <string name="follows">关注</string>
+    <string name="fans">粉丝</string>
+    <string name="change_skin">换肤</string>
+    <string name="night_mode">夜间模式</string>
+    <string name="feedback">反馈</string>
+    <string name="music_clock">音乐闹钟</string>
+
+    <string name="login">登录</string>
+    <string name="no_login">暂未登录</string>
+    <string name="logout">退出登录</string>
+    <string name="reset_password">重设密码</string>
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+
+    <!--my music-->
+    <string name="local_music">本地音乐</string>
+    <string name="recent_played">最近播放</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="personal_song_list">个人歌单</string>
+
+    <!--dicover-->
+    <string name="official_rank">云音乐官方榜单</string>
+    <string name="official_rank_tips">(来源：网易云音乐官方榜)</string>
+    <string name="global_rank">云音乐全球榜单</string>
+    <string name="global_rank_tips">(来源：网易云音乐全球榜)</string>
+    <string name="rank">排行榜</string>
+    <string name="download">下载</string>
+    <string name="loading">载入中...</string>
+
+</resources>
