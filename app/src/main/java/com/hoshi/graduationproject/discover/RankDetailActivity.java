@@ -67,7 +67,7 @@ public class RankDetailActivity extends AppCompatActivity implements View.OnClic
         switch (msg.what)
         {
           case UPDATE_RANK_DYNAMIC:
-            loadRankData();//解析json数据
+            loadRankData();//装入json数据
             break;
           case UPDATE:
             loadRankSongData();
