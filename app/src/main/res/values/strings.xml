@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">MusicPlayer</string>
 
     <!--tab-->
@@ -37,5 +37,35 @@
     <string name="rank">排行榜</string>
     <string name="download">下载</string>
     <string name="loading">载入中...</string>
+
+    <!--playing music-->
+    <string name="duration_format" translatable="false"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
+    <string name="durationformatshort" translatable="false"><xliff:g id="format">%2$d:%3$02d</xliff:g></string>
+    <string name="durationformatlong" translatable="false"><xliff:g id="format">%1$d:%2$02d:%3$02d</xliff:g></string>
+    <string name="next_play">已加入下一首播放</string>
+
+    <!--common-->
+    <string name="exit">退出</string>
+    <string name="shared_to">分享到</string>
+    <string name="sure_to_delete_music">确定删除歌曲吗</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="sure_to_set_ringtone">确定成设置铃声吗</string>
+    <string name="set_ringtone_successed">设置铃声成功！</string>
+    <string name="timing">定时播放</string>
+
+    <string name="search">搜索</string>
+
+    <string name="menu_sort_by">选择排序方式</string>
+    <string name="sort_order_entry_az">按名称排序</string>
+    <string name="sort_order_entry_dateadded">按添加时间排序</string>
+    <string name="sort_order_entry_album">按专辑排序</string>
+    <string name="sort_order_entry_artist">按歌手排序</string>
+    <string name="sort_order_entry_number_of_songs">按歌曲数量排序</string>
+
+    <string name="queue_is_empty">播放队列为空</string>
+    <string name="random_play">随机播放</string>
+    <string name="loop_play">列表循环</string>
+    <string name="play_one">单曲播放</string>
 
 </resources>

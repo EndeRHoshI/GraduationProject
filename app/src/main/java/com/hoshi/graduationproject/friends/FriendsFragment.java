@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.hoshi.graduationproject.R;
 import com.hoshi.graduationproject.discover.PicTestActivity;
+import com.hoshi.graduationproject.activity.PlayingActivity;
 
 public class FriendsFragment extends Fragment {
 
@@ -32,7 +33,7 @@ public class FriendsFragment extends Fragment {
     mButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        startActivity(new Intent(getActivity(),PicTestActivity.class));
+        startActivity(new Intent(getActivity(),PlayingActivity.class));
       }
     });
   }

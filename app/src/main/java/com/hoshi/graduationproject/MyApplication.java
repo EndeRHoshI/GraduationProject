@@ -5,10 +5,13 @@ import android.app.Application;
 import android.content.Context;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.google.gson.Gson;
 
 public class MyApplication extends Application {
 
   public static Context CONTEXT;
+
+  private static Gson gson;
 
   public static Context getContext() {
     return CONTEXT;
@@ -19,6 +22,13 @@ public class MyApplication extends Application {
     super.onCreate();
     CONTEXT = getApplicationContext();
     Fresco.initialize(this);
+  }
+
+  public static Gson gsonInstance() {
+    if (gson == null) {
+      gson = new Gson();
+    }
+    return gson;
   }
 
 

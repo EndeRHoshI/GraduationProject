@@ -15,4 +15,18 @@
     <color name="text_lite_gray">#69696A</color>
     <color name="transparent">#00ffffff</color>
     <color name="transparent_press">#50000000</color>
+
+    <color name="small_font">#FF757575</color>
+    <color name="text_color">#FF000000</color>
+    <color name="test_color">#696969</color>
+
+    <color name="bottom_text">#c1c0c0</color>
+
+    <color name="toolabar_color">#d20000</color>
+
+    <color name="listTextColor">#ff333333</color>
+    <color name="listSubTextColor">#ff888888</color>
+    <color name="background_material_light_1">#fafafa</color>
+
+    <color name="notification_bak">#47fafafa</color>
 </resources>
