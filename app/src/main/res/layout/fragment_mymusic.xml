@@ -55,11 +55,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
                     android:paddingBottom="15dp"
                     android:paddingTop="15dp"
                     android:text="@string/local_music"
                     android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/local_music_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_weight="1"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="2dp"
+                    android:text="（0）"
+                    android:textColor="@color/gray"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -92,11 +103,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
                     android:paddingBottom="15dp"
                     android:paddingTop="15dp"
                     android:text="@string/recent_played"
                     android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/recent_played_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_weight="1"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="2dp"
+                    android:text="（0）"
+                    android:textColor="@color/gray"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -129,11 +151,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
                     android:paddingBottom="15dp"
                     android:paddingTop="15dp"
                     android:text="@string/my_collection"
                     android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/my_collection_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_weight="1"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="2dp"
+                    android:text="（0）"
+                    android:textColor="@color/gray"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -163,15 +196,25 @@
                     android:src="@drawable/ic_songlist"/>
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:text="@string/personal_song_list"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/personal_song_list_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
                     android:layout_weight="1"
                     android:paddingBottom="15dp"
                     android:paddingTop="15dp"
-                    android:text="@string/personal_song_list"
-                    android:textColor="@color/black"/>
+                    android:paddingLeft="2dp"
+                    android:text="（0）"
+                    android:textColor="@color/gray"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -192,8 +235,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/lite_gray"
-                android:divider="@null"
-                android:clickable="true">
+                android:clickable="true"
+                android:divider="@null">
             </com.hoshi.graduationproject.mymusic.NestedExpandaleListView>
         </LinearLayout>
     </ScrollView>

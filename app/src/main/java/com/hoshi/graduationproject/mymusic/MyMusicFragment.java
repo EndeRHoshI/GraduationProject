@@ -12,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hoshi.graduationproject.R;
+import com.hoshi.graduationproject.provider.DownFileStore;
+import com.hoshi.graduationproject.recent.TopTracksLoader;
+import com.hoshi.graduationproject.util.IConstants;
+import com.hoshi.graduationproject.util.MusicUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +30,18 @@ public class MyMusicFragment extends Fragment {
   private List<String[]> song_list_item;
   private List<List<String[]>> item_list;
 
+  TextView tv_localMusicNum;
+  TextView tv_recentPlayedNum;
+  TextView tv_myCollectionNum;
+  TextView tv_personalSongListNum;
+
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     if (rootView == null) {
       rootView = inflater.inflate(R.layout.fragment_mymusic, container, false);
     }
-    ViewGroup parent = (ViewGroup)rootView.getParent();
+    ViewGroup parent = (ViewGroup) rootView.getParent();
     if (parent != null) {
       parent.removeView(rootView);
     }
@@ -43,7 +52,12 @@ public class MyMusicFragment extends Fragment {
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     mExpandableListView = (NestedExpandaleListView) getActivity().findViewById(R.id.expandablelistview);
+    tv_localMusicNum = (TextView) getActivity().findViewById(R.id.local_music_num);
+    tv_recentPlayedNum = (TextView) getActivity().findViewById(R.id.recent_played_num);
+    tv_myCollectionNum = (TextView) getActivity().findViewById(R.id.my_collection_num);
+    tv_personalSongListNum = (TextView) getActivity().findViewById(R.id.personal_song_list_num);
     initView();
+    loadCount();
   }
 
   protected void initView() {
@@ -206,5 +220,17 @@ public class MyMusicFragment extends Fragment {
   private class SmallData {
     String content;
     String id;
+  }
+
+  private void loadCount() {
+    int localMusicCount = 0, recentMusicCount = 0, myCollectionCount = 0, personalSongListCount = 0;
+    localMusicCount = MusicUtils.queryMusic(getActivity(), IConstants.START_FROM_LOCAL).size();
+    recentMusicCount = TopTracksLoader.getCount(getActivity(), TopTracksLoader.QueryType.RecentSongs);
+    myCollectionCount = DownFileStore.getInstance(getActivity()).getDownLoadedListAll().size();
+    personalSongListCount = MusicUtils.queryArtist(getActivity()).size();
+    tv_localMusicNum.setText("（" + localMusicCount + "）");
+    tv_recentPlayedNum.setText("（" + recentMusicCount + "）");
+    tv_myCollectionNum.setText("（" + myCollectionCount + "）");
+    tv_personalSongListNum.setText("（" + personalSongListCount + "）");
   }
 }
