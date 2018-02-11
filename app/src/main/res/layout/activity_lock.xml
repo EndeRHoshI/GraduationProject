@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#70000000" />
-    <com.wm.remusic.widget.SildingFinishLayout
+    <com.hoshi.graduationproject.widget.SildingFinishLayout
         android:orientation="vertical" android:layout_width="match_parent"
         android:id="@+id/lock_root"
         android:layout_height="match_parent">
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <com.wm.remusic.widget.CustomTextView
+        <com.hoshi.graduationproject.widget.CustomTextView
             android:layout_centerHorizontal="true"
             android:text=">>> 滑动解锁"
             android:textColor="@color/white"
@@ -107,5 +107,5 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp" />
 
-    </com.wm.remusic.widget.SildingFinishLayout>
+    </com.hoshi.graduationproject.widget.SildingFinishLayout>
 </FrameLayout>

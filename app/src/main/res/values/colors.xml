@@ -29,4 +29,6 @@
     <color name="background_material_light_1">#fafafa</color>
 
     <color name="notification_bak">#47fafafa</color>
+
+    <color name="widget_background_color">#a0000000</color>
 </resources>

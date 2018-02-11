@@ -9,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.hoshi.graduationproject.MyApplication;
 import com.hoshi.graduationproject.R;
 import com.hoshi.graduationproject.discover.PicTestActivity;
 import com.hoshi.graduationproject.activity.PlayingActivity;
+import com.hoshi.graduationproject.fragment.BaseFragment;
 
-public class FriendsFragment extends Fragment {
+public class FriendsFragment extends BaseFragment {
 
   private View mRootView;
   Button mButton;
@@ -33,9 +35,10 @@ public class FriendsFragment extends Fragment {
     mButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        startActivity(new Intent(getActivity(),PlayingActivity.class));
+        Intent intent = new Intent(MyApplication.getContext(),PlayingActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        MyApplication.getContext().startActivity(intent);
       }
     });
   }
-
 }

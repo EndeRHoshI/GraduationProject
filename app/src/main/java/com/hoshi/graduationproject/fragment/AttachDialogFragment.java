@@ -15,6 +15,4 @@ public class AttachDialogFragment extends DialogFragment {
         super.onAttach(activity);
         this.mContext = activity;
     }
-
-
 }

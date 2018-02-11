@@ -26,7 +26,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
-import android.renderscript.RenderScript;
+import android.support.v8.renderscript.RenderScript;
 import android.util.Log;
 
 import java.io.ByteArrayInputStream;

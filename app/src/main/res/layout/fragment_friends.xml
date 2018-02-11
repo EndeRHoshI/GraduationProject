@@ -18,6 +18,7 @@
             android:text="@string/friends"/>
 
         <ImageView
+            android:id="@+id/loading_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             style="@style/top_image_style"

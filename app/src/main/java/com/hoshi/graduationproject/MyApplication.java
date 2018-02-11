@@ -3,9 +3,11 @@ package com.hoshi.graduationproject;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
+import com.hoshi.graduationproject.permissions.Nammu;
 
 public class MyApplication extends Application {
 
@@ -22,6 +24,9 @@ public class MyApplication extends Application {
     super.onCreate();
     CONTEXT = this;
     Fresco.initialize(this);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      Nammu.init(this);
+    }
   }
 
   public static Gson gsonInstance() {

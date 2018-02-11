@@ -1,6 +1,7 @@
 package com.hoshi.graduationproject.mymusic;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,10 +11,16 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.hoshi.graduationproject.MyApplication;
 import com.hoshi.graduationproject.R;
+import com.hoshi.graduationproject.activity.PlayingActivity;
+import com.hoshi.graduationproject.fragment.BaseFragment;
+import com.hoshi.graduationproject.personal.LoginActivity;
 import com.hoshi.graduationproject.provider.DownFileStore;
 import com.hoshi.graduationproject.recent.TopTracksLoader;
+import com.hoshi.graduationproject.util.ClickManager;
 import com.hoshi.graduationproject.util.IConstants;
 import com.hoshi.graduationproject.util.MusicUtils;
 
@@ -22,7 +29,7 @@ import java.util.List;
 
 import static com.hoshi.graduationproject.R.id.song_list_creator;
 
-public class MyMusicFragment extends Fragment {
+public class MyMusicFragment extends BaseFragment implements View.OnClickListener {
 
   private View rootView = null;
   private NestedExpandaleListView mExpandableListView;
@@ -51,6 +58,11 @@ public class MyMusicFragment extends Fragment {
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    ClickManager.init(getView(), this,
+            R.id.local_music,
+            R.id.loading_button);
+
     mExpandableListView = (NestedExpandaleListView) getActivity().findViewById(R.id.expandablelistview);
     tv_localMusicNum = (TextView) getActivity().findViewById(R.id.local_music_num);
     tv_recentPlayedNum = (TextView) getActivity().findViewById(R.id.recent_played_num);
@@ -58,6 +70,22 @@ public class MyMusicFragment extends Fragment {
     tv_personalSongListNum = (TextView) getActivity().findViewById(R.id.personal_song_list_num);
     initView();
     loadCount();
+  }
+
+  @Override
+  public void onClick(View v) {
+    switch (v.getId()) {
+      case R.id.local_music:
+        startActivity(new Intent(getActivity(), LocalMusicActivity.class));
+        break;
+      case R.id.loading_button:
+        Intent intent = new Intent(MyApplication.getContext(), PlayingActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        MyApplication.getContext().startActivity(intent);
+        break;
+      default:
+        break;
+    }
   }
 
   protected void initView() {

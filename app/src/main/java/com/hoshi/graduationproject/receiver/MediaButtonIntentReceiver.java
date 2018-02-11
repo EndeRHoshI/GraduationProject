@@ -25,7 +25,6 @@ import android.view.KeyEvent;
 import com.hoshi.graduationproject.MainActivity;
 import com.hoshi.graduationproject.service.MediaService;
 
-
 /**
  * Used to control headset playback.
  * Single press: pause/resume

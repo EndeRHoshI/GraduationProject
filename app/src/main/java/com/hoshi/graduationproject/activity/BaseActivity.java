@@ -9,11 +9,16 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.hoshi.graduationproject.MediaAidlInterface;
+import com.hoshi.graduationproject.MyApplication;
 import com.hoshi.graduationproject.R;
 import com.hoshi.graduationproject.service.MediaService;
 import com.hoshi.graduationproject.service.MusicPlayer;
+import com.hoshi.graduationproject.util.ClickManager;
 import com.hoshi.graduationproject.util.IConstants;
 
 import java.lang.ref.WeakReference;
@@ -25,12 +30,14 @@ import static com.hoshi.graduationproject.service.MusicPlayer.mService;
  * Created by wm on 2016/2/25.
  * activity基类
  */
-public class BaseActivity extends AppCompatActivity implements ServiceConnection {
+public class BaseActivity extends AppCompatActivity implements ServiceConnection, View.OnClickListener {
 
   private MusicPlayer.ServiceToken mToken;
   private PlaybackStatus mPlaybackStatus; //receiver 接受播放状态变化等
   private String TAG = "BaseActivity";
   private ArrayList<MusicStateListener> mMusicListener = new ArrayList<>();
+
+  public ImageView iv_loading_button;
 
   /**
    * 更新播放队列
@@ -75,19 +82,16 @@ public class BaseActivity extends AppCompatActivity implements ServiceConnection
    * 歌曲切换
    */
   public void updateTrack() {
-
   }
 
 
   public void updateLrc() {
-
   }
 
   /**
    * @param p 更新歌曲缓冲进度值，p取值从0~100
    */
   public void updateBuffer(int p) {
-
   }
 
   public void changeTheme() {
@@ -142,12 +146,27 @@ public class BaseActivity extends AppCompatActivity implements ServiceConnection
     f.addAction(IConstants.PLAYLIST_COUNT_CHANGED);
     f.addAction(MediaService.MUSIC_LODING);
     registerReceiver(mPlaybackStatus, new IntentFilter(f));
+
+    ClickManager.init(this, this, R.id.loading_button);
   }
 
 
   @Override
+  public void onClick(View v) {
+    switch (v.getId()) {
+      case R.id.loading_button:
+        Intent intent = new Intent(MyApplication.getContext(), PlayingActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        MyApplication.getContext().startActivity(intent);
+        break;
+      default:
+        break;
+    }
+  }
+
+  @Override
   public void onServiceConnected(final ComponentName name, final IBinder service) {
-    //mService = MediaAidlInterface.Stub.asInterface(service);
+    mService = MediaAidlInterface.Stub.asInterface(service);
   }
 
   @Override

@@ -22,12 +22,12 @@ package com.hoshi.graduationproject.util;
  */
 public interface IConstants {
 
-    String MUSIC_COUNT_CHANGED = "com.wm.remusic.musiccountchanged";
-    String PLAYLIST_ITEM_MOVED = "com.wm.remusic.mmoved";
-    String PLAYLIST_COUNT_CHANGED = "com.wm.remusic.playlistcountchanged";
-    String CHANGE_THEME = "com.wm.remusic.themechange";
-    String EMPTY_LIST = "com.wm.remusic.emptyplaylist";
-    String PACKAGE = "com.wm.remusic";
+    String MUSIC_COUNT_CHANGED = "com.hoshi.graduationproject.musiccountchanged";
+    String PLAYLIST_ITEM_MOVED = "com.hoshi.graduationproject.mmoved";
+    String PLAYLIST_COUNT_CHANGED = "com.hoshi.graduationproject.playlistcountchanged";
+    String CHANGE_THEME = "com.hoshi.graduationproject.themechange";
+    String EMPTY_LIST = "com.hoshi.graduationproject.emptyplaylist";
+    String PACKAGE = "com.hoshi.graduationproject";
     int MUSICOVERFLOW = 0;
     int ARTISTOVERFLOW = 1;
     int ALBUMOVERFLOW = 2;

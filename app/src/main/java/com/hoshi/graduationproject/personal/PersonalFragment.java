@@ -10,10 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.hoshi.graduationproject.MyApplication;
 import com.hoshi.graduationproject.R;
+import com.hoshi.graduationproject.activity.PlayingActivity;
+import com.hoshi.graduationproject.fragment.BaseFragment;
 import com.hoshi.graduationproject.util.ClickManager;
 
-public class PersonalFragment extends Fragment implements View.OnClickListener {
+public class PersonalFragment extends BaseFragment implements View.OnClickListener {
   private View mRootView;
 
   @Override
@@ -36,7 +39,8 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
             R.id.change_skin_layout,
             R.id.night_mode_layout,
             R.id.feedback_layout,
-            R.id.logout_textview);
+            R.id.logout_textview,
+            R.id.loading_button);
 
     Uri uri = Uri.parse("http://cdn.aixifan.com/acfun-pc/2.0.97/img/niudan/niudango.png");
     SimpleDraweeView draweeView = (SimpleDraweeView) getActivity().findViewById(R.id.head_pic);
@@ -54,6 +58,11 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
   @Override
   public void onClick(View v) {
     switch (v.getId()) {
+      case R.id.loading_button:
+        Intent intent = new Intent(MyApplication.getContext(),PlayingActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        MyApplication.getContext().startActivity(intent);
+        break;
       case R.id.avatar_nickname_layout:
         startActivity(new Intent(getActivity(), LoginActivity.class));
         break;

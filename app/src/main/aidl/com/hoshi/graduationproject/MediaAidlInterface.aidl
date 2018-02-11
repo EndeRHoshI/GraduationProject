@@ -54,6 +54,6 @@ interface MediaAidlInterface
     void setLockscreenAlbumArt(boolean enabled);
     void exit();
     void timing(int time);
-    /*MusicTrack getCurrentTrack();
-    MusicTrack getTrack(int index);*/
+    //MusicTrack getCurrentTrack();
+    //MusicTrack getTrack(int index);
 }

@@ -1,9 +1,9 @@
 package com.hoshi.graduationproject.discover;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hoshi.graduationproject.R;
+import com.hoshi.graduationproject.activity.BaseActivity;
+import com.hoshi.graduationproject.info.MusicInfo;
 import com.hoshi.graduationproject.util.ClickManager;
 
 import org.json.JSONArray;
@@ -29,7 +31,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class RankDetailActivity extends AppCompatActivity implements View.OnClickListener{
+public class RankDetailActivity extends BaseActivity implements View.OnClickListener {
+
+  private Context mContext;
 
   final int UPDATE_RANK_DYNAMIC = 1;
   final int UPDATE = 2;
@@ -51,7 +55,7 @@ public class RankDetailActivity extends AppCompatActivity implements View.OnClic
   private List<songList> mSongList= new ArrayList<songList>();
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_rank_detail);
 
@@ -199,6 +203,7 @@ public class RankDetailActivity extends AppCompatActivity implements View.OnClic
   public class rankListSongAdapter extends BaseAdapter {
 
     private List<songList> mData;//定义数据。
+    private ArrayList <MusicInfo> mList;
     private LayoutInflater mInflater;//定义Inflater,加载我们自定义的布局。
 
     /*
@@ -251,6 +256,24 @@ public class RankDetailActivity extends AppCompatActivity implements View.OnClic
       }
       return viewSongList;
     }
+
+    /*public void onClick(View v) {
+      HandlerUtil.getInstance(mContext).postDelayed(new Runnable() {
+        @Override
+        public void run() {
+          long[] list = new long[mData.size()];
+          HashMap<Long, MusicInfo> infos = new HashMap();
+          for (int i = 0; i < mData.size(); i++) {
+            MusicInfo info = mData.get(i);
+            list[i] = info.songId;
+            info.islocal = true;
+            info.albumData = MusicUtils.getAlbumArtUri(info.albumId) + "";
+            infos.put(list[i], mData.get(i));
+          }
+          MusicPlayer.playAll(infos, list, 0, false);
+        }
+      }, 70);
+    }*/
   }
 }
 

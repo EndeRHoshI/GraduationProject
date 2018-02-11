@@ -499,7 +499,16 @@ public class MusicPlayer {
   }
 
   public static synchronized void playAll(final HashMap<Long, MusicInfo> infos, final long[] list, int position, final boolean forceShuffle) {
-    if (list == null || list.length == 0 || mService == null) {
+    if (list == null) {
+      Log.d("haha","list is null");
+      return;
+    }
+    if (list.length == 0) {
+      Log.d("haha","length is 0");
+      return;
+    }
+    if (mService == null) {
+      Log.d("haha","mService is null");
       return;
     }
     try {
@@ -520,7 +529,6 @@ public class MusicPlayer {
             mService.setQueuePosition(position);
             return;
           }
-
         }
       }
       if (position < 0) {

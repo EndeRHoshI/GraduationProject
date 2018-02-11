@@ -29,6 +29,7 @@
             android:text="@string/rank"/>
 
         <ImageView
+            android:id="@+id/loading_button"
             style="@style/top_image_style"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

@@ -587,11 +587,9 @@ public class PlayingActivity extends BaseActivity implements IConstants {
   };
 
   public void updateTrackInfo() {
-
     if (MusicPlayer.getQueueSize() == 0) {
       return;
     }
-
     Fragment fragment = (RoundFragment) mViewPager.getAdapter().instantiateItem(mViewPager, mViewPager.getCurrentItem());
     if (fragment != null) {
       View v = fragment.getView();
