@@ -7,9 +7,11 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hoshi.graduationproject.R;
@@ -31,7 +33,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class RankDetailActivity extends BaseActivity implements View.OnClickListener {
+public class RankDetailActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
   private Context mContext;
 
@@ -182,6 +184,7 @@ public class RankDetailActivity extends BaseActivity implements View.OnClickList
     lv_rankSongList.setAdapter(new rankListSongAdapter(getLayoutInflater(), mSongList));
     tv_rankSongListLoading.setVisibility(View.GONE);
     lv_rankSongList.setVisibility(View.VISIBLE);
+    lv_rankSongList.setOnItemClickListener(this);
   }
 
   public class songList {
@@ -198,6 +201,14 @@ public class RankDetailActivity extends BaseActivity implements View.OnClickList
       this.alias = alias;
       this.singer = singer;
     }
+  }
+  @Override
+  public void onItemClick(AdapterView<?> parent, View view, int position,
+                          long id) {
+    // TODO Auto-generated method stub
+    String text= lv_rankSongList.getItemAtPosition(position)+"";
+    Toast.makeText(this, "position="+position+"text="+text,
+            Toast.LENGTH_SHORT).show();
   }
 
   public class rankListSongAdapter extends BaseAdapter {
@@ -230,7 +241,7 @@ public class RankDetailActivity extends BaseActivity implements View.OnClickList
     }
 
     @Override
-    public View getView(int position, View convertview, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
       //获得ListView中的view
       View viewSongList = mInflater.inflate(R.layout.listview_songs,null);
       //获得排行榜歌曲对象

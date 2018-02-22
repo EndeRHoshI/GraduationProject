@@ -2379,7 +2379,6 @@ public class MediaService extends Service {
   public void prev(boolean forcePrevious) {
     synchronized (this) {
 
-
       boolean goPrevious = getRepeatMode() != REPEAT_CURRENT &&
               (position() < REWIND_INSTEAD_PREVIOUS_THRESHOLD || forcePrevious);
 
