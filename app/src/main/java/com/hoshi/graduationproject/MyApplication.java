@@ -3,17 +3,17 @@ package com.hoshi.graduationproject;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
-import android.os.Build;
+import android.content.Intent;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.google.gson.Gson;
-import com.hoshi.graduationproject.permissions.Nammu;
+import com.hoshi.graduationproject.application.AppCache;
+import com.hoshi.graduationproject.application.ForegroundObserver;
+import com.hoshi.graduationproject.service.PlayService;
+import com.hoshi.graduationproject.storage.db.DBManager;
 
 public class MyApplication extends Application {
 
   public static Context CONTEXT;
-
-  private static Gson gson;
 
   public static Context getContext() {
     return CONTEXT;
@@ -22,18 +22,14 @@ public class MyApplication extends Application {
   @Override
   public void onCreate() {
     super.onCreate();
-    CONTEXT = this;
+    CONTEXT = getApplicationContext();
+    AppCache.get().init(this);
+    ForegroundObserver.init(this);
+    DBManager.get().init(this);
     Fresco.initialize(this);
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-      Nammu.init(this);
-    }
-  }
 
-  public static Gson gsonInstance() {
-    if (gson == null) {
-      gson = new Gson();
-    }
-    return gson;
+    Intent intent = new Intent(this, PlayService.class);
+    startService(intent);
   }
 
 

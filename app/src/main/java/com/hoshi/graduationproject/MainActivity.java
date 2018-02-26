@@ -3,16 +3,16 @@ package com.hoshi.graduationproject;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.hoshi.graduationproject.activity.BaseActivity;
 import com.hoshi.graduationproject.discover.DiscoverFragment;
 import com.hoshi.graduationproject.friends.FriendsFragment;
 import com.hoshi.graduationproject.mymusic.MyMusicFragment;
 import com.hoshi.graduationproject.personal.PersonalFragment;
-import com.hoshi.graduationproject.util.PermissionHelper;
+import com.hoshi.graduationproject.utils.PermissionHelper;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
   private static final String DISCOVER = "discover";
 
@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity {
   private PermissionHelper mPermissionHelper;
 
   @Override
-  public void onCreate(Bundle savedInstanceState) {
+  protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 

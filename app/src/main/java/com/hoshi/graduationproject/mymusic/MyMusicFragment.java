@@ -3,7 +3,6 @@ package com.hoshi.graduationproject.mymusic;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,18 +10,12 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.hoshi.graduationproject.MyApplication;
 import com.hoshi.graduationproject.R;
-import com.hoshi.graduationproject.activity.PlayingActivity;
+import com.hoshi.graduationproject.activity.PlayActivity;
 import com.hoshi.graduationproject.fragment.BaseFragment;
-import com.hoshi.graduationproject.personal.LoginActivity;
-import com.hoshi.graduationproject.provider.DownFileStore;
-import com.hoshi.graduationproject.recent.TopTracksLoader;
-import com.hoshi.graduationproject.util.ClickManager;
-import com.hoshi.graduationproject.util.IConstants;
-import com.hoshi.graduationproject.util.MusicUtils;
+import com.hoshi.graduationproject.utils.ClickManager;
+import com.hoshi.graduationproject.utils.MusicUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,9 +72,7 @@ public class MyMusicFragment extends BaseFragment implements View.OnClickListene
         startActivity(new Intent(getActivity(), LocalMusicActivity.class));
         break;
       case R.id.loading_button:
-        Intent intent = new Intent(MyApplication.getContext(), PlayingActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        MyApplication.getContext().startActivity(intent);
+        startActivity(new Intent(getActivity(), PlayActivity.class));
         break;
       default:
         break;
@@ -252,10 +243,11 @@ public class MyMusicFragment extends BaseFragment implements View.OnClickListene
 
   private void loadCount() {
     int localMusicCount = 0, recentMusicCount = 0, myCollectionCount = 0, personalSongListCount = 0;
-    localMusicCount = MusicUtils.queryMusic(getActivity(), IConstants.START_FROM_LOCAL).size();
+    localMusicCount = MusicUtils.scanMusicAndReturnNum(getContext());
+    /*localMusicCount = MusicUtils.queryMusic(getActivity(), IConstants.START_FROM_LOCAL).size();
     recentMusicCount = TopTracksLoader.getCount(getActivity(), TopTracksLoader.QueryType.RecentSongs);
     myCollectionCount = DownFileStore.getInstance(getActivity()).getDownLoadedListAll().size();
-    personalSongListCount = MusicUtils.queryArtist(getActivity()).size();
+    personalSongListCount = MusicUtils.queryArtist(getActivity()).size();*/
     tv_localMusicNum.setText("（" + localMusicCount + "）");
     tv_recentPlayedNum.setText("（" + recentMusicCount + "）");
     tv_myCollectionNum.setText("（" + myCollectionCount + "）");

@@ -18,6 +18,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <LinearLayout
@@ -47,7 +48,6 @@
                 android:textSize="15sp"/>
         </LinearLayout>
 
-
         <TextView
             android:id="@+id/rank_songList_name_singer"
             android:layout_width="wrap_content"
@@ -59,4 +59,13 @@
             android:textColor="@color/gray"
             android:textSize="11sp"/>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_more"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/music_list_more_bg_selector"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_music_list_icon_more" />
 </LinearLayout>

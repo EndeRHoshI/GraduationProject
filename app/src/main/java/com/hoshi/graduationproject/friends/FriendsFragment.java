@@ -3,22 +3,19 @@ package com.hoshi.graduationproject.friends;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.hoshi.graduationproject.MyApplication;
 import com.hoshi.graduationproject.R;
+import com.hoshi.graduationproject.activity.PlayActivity;
 import com.hoshi.graduationproject.discover.PicTestActivity;
-import com.hoshi.graduationproject.activity.PlayingActivity;
 import com.hoshi.graduationproject.fragment.BaseFragment;
+import com.hoshi.graduationproject.utils.ClickManager;
 
-public class FriendsFragment extends BaseFragment {
+public class FriendsFragment extends BaseFragment implements View.OnClickListener {
 
   private View mRootView;
-  Button mButton;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,16 +26,22 @@ public class FriendsFragment extends BaseFragment {
 
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
+    ClickManager.init(getActivity(), this, R.id.loading_button,
+            R.id.testButton);
     super.onCreate(savedInstanceState);
+  }
 
-    mButton = (Button)getActivity().findViewById(R.id.testButton);
-    mButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Intent intent = new Intent(MyApplication.getContext(),PlayingActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        MyApplication.getContext().startActivity(intent);
-      }
-    });
+  @Override
+  public void onClick(View v) {
+    switch (v.getId()) {
+      case R.id.loading_button:
+        startActivity(new Intent(getActivity(), PlayActivity.class));
+        break;
+      case R.id.testButton:
+        startActivity(new Intent(getActivity(), PicTestActivity.class));
+        break;
+      default:
+        break;
+    }
   }
 }

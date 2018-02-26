@@ -2,7 +2,8 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="flexible_space_image_height">300dp</dimen>
-    <dimen name="artist_image">230dp</dimen>
-    <dimen name="drawer_icon_size">32dp</dimen>
+    <dimen name="text_size_common">16sp</dimen>
+    <dimen name="play_bar_height">57dp</dimen>
+    <dimen name="screen_tips_top">80dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
 </resources>

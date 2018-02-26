@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.hoshi.graduationproject.R;
-import com.hoshi.graduationproject.util.ClickManager;
+import com.hoshi.graduationproject.utils.ClickManager;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 

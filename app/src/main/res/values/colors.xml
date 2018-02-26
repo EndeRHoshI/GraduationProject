@@ -6,8 +6,6 @@
 
     <color name="theme_color">#C3473A</color>
 
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
     <color name="gray">#777777</color>
     <color name="lite_gray">#EEEFF0</color>
     <color name="item_press">#e4e5e6</color>
@@ -15,20 +13,25 @@
     <color name="text_lite_gray">#69696A</color>
     <color name="transparent">#00ffffff</color>
     <color name="transparent_press">#50000000</color>
-
-    <color name="small_font">#FF757575</color>
     <color name="text_color">#FF000000</color>
-    <color name="test_color">#696969</color>
+    <color name="edittext_hint_color">#96ffffff</color>
 
-    <color name="bottom_text">#c1c0c0</color>
-
-    <color name="toolabar_color">#d20000</color>
-
-    <color name="listTextColor">#ff333333</color>
-    <color name="listSubTextColor">#ff888888</color>
-    <color name="background_material_light_1">#fafafa</color>
-
-    <color name="notification_bak">#47fafafa</color>
-
-    <color name="widget_background_color">#a0000000</color>
+    <color name="white">@android:color/white</color>
+    <color name="white_8p">#14FFFFFF</color>
+    <color name="white_16p">#29FFFFFF</color>
+    <color name="white_24p">#3DFFFFFF</color>
+    <color name="white_50p">#80FFFFFF</color>
+    <color name="white_96p">#F5FFFFFF</color>
+    <color name="black">@android:color/black</color>
+    <color name="black_50p">#80000000</color>
+    <color name="red">#F44336</color>
+    <color name="red_30p">#4CF44336</color>
+    <color name="blue">#2196F3</color>
+    <color name="grey">#9E9E9E</color>
+    <color name="grey_50p">#809E9E9E</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_700_96p">#F5616161</color>
+    <color name="grey_300_96p">#F5E0E0E0</color>
+    <color name="grey_900">#212121</color>
+    <color name="grey_900_96p">#F5212121</color>
 </resources>

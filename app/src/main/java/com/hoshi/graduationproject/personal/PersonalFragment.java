@@ -3,18 +3,16 @@ package com.hoshi.graduationproject.personal;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.hoshi.graduationproject.MyApplication;
 import com.hoshi.graduationproject.R;
-import com.hoshi.graduationproject.activity.PlayingActivity;
+import com.hoshi.graduationproject.activity.PlayActivity;
 import com.hoshi.graduationproject.fragment.BaseFragment;
-import com.hoshi.graduationproject.util.ClickManager;
+import com.hoshi.graduationproject.utils.ClickManager;
 
 public class PersonalFragment extends BaseFragment implements View.OnClickListener {
   private View mRootView;
@@ -58,11 +56,6 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
   @Override
   public void onClick(View v) {
     switch (v.getId()) {
-      case R.id.loading_button:
-        Intent intent = new Intent(MyApplication.getContext(),PlayingActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        MyApplication.getContext().startActivity(intent);
-        break;
       case R.id.avatar_nickname_layout:
         startActivity(new Intent(getActivity(), LoginActivity.class));
         break;
@@ -89,6 +82,9 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
         break;
       case R.id.logout_textview:
         Toast.makeText(getActivity(), "暂未开发", Toast.LENGTH_SHORT).show();
+        break;
+      case R.id.loading_button:
+        startActivity(new Intent(getActivity(), PlayActivity.class));
         break;
     }
   }

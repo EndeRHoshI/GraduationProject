@@ -1,6 +1,5 @@
 package com.hoshi.graduationproject.mymusic;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
@@ -13,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.hoshi.graduationproject.R;
 import com.hoshi.graduationproject.fragment.AttachDialogFragment;
 
@@ -73,10 +71,10 @@ public class LocalMusicFragment extends AttachDialogFragment {
 
   private void setupViewPager(ViewPager viewPager) {
     Adapter adapter = new Adapter(getChildFragmentManager());
-    adapter.addFragment(new MusicFragment(), title[0]);
-    adapter.addFragment(new ArtistFragment(), title[1]);
-    adapter.addFragment(new AlbumFragment(), title[2]);
-    adapter.addFragment(new FolderFragment(), title[3]);
+    adapter.addFragment(new LocalMusicChildFragment(), title[0]);
+    adapter.addFragment(new LocalMusicChildFragment(), title[1]);
+    adapter.addFragment(new LocalMusicChildFragment(), title[2]);
+    adapter.addFragment(new LocalMusicChildFragment(), title[3]);
 
     viewPager.setAdapter(adapter);
   }

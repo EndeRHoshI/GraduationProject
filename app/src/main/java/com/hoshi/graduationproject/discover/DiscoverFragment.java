@@ -12,7 +12,10 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hoshi.graduationproject.R;
+import com.hoshi.graduationproject.activity.PlayActivity;
+import com.hoshi.graduationproject.activity.SearchActivity;
 import com.hoshi.graduationproject.fragment.BaseFragment;
+import com.hoshi.graduationproject.utils.ClickManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +29,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class DiscoverFragment extends BaseFragment {
+public class DiscoverFragment extends BaseFragment implements View.OnClickListener{
 
   final int UPDATE_COVER = 1;
 
@@ -71,6 +74,8 @@ public class DiscoverFragment extends BaseFragment {
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
     initPage();
+    ClickManager.init(getActivity(), this, R.id.loading_button,
+            R.id.search_button);
     super.onCreate(savedInstanceState);
   }
 
@@ -78,6 +83,20 @@ public class DiscoverFragment extends BaseFragment {
   public void onResume() {
     loadData();
     super.onResume();
+  }
+
+  @Override
+  public void onClick(View v) {
+    switch (v.getId()) {
+      case R.id.loading_button:
+        startActivity(new Intent(getActivity(), PlayActivity.class));
+        break;
+      case R.id.search_button:
+        startActivity(new Intent(getActivity(), SearchActivity.class));
+        break;
+      default:
+        break;
+    }
   }
 
   public void initPage() {

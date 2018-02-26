@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:paddingTop="20dp"
+    android:background="@color/theme_color"
+    android:minHeight="?attr/actionBarSize">
+
+    <ImageView
+        android:id="@+id/back_local_music"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:src="@drawable/ic_back"/>
+
+    <TextView
+        style="@style/top_text_style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/local_music"/>
+
+    <ImageView
+        android:id="@+id/loading_button"
+        style="@style/top_image_style"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:padding="8dp"
+        android:src="@drawable/top_loading1"/>
+</FrameLayout>
