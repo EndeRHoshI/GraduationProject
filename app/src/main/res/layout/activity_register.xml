@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hoshi.graduationproject.personal.LoginActivity">
+    tools:context="com.hoshi.graduationproject.activity.LoginActivity">
 
     <FrameLayout
         android:id="@+id/top_framelayout"
@@ -14,7 +14,7 @@
         android:background="@color/theme_color">
 
         <ImageView
-            android:id="@+id/back"
+            android:id="@+id/register_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_back"
@@ -24,59 +24,59 @@
 
         <TextView
             android:id="@+id/textView"
+            style="@style/top_text_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/top_text_style"
-            android:text="@string/login"/>
+            android:text="@string/register" />
     </FrameLayout>
-    
+
     <EditText
-        android:id="@+id/account_edittext"
+        android:id="@+id/phone_edittext"
+        style="@style/login_edittext_style"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/top_framelayout"
+        android:drawableLeft="@drawable/ic_phone"
+        android:maxLength="11"
+        android:inputType="phone"
+        android:hint="@string/phone_number" />
+
+    <EditText
+        android:id="@+id/nickname_edittext"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         style="@style/login_edittext_style"
         android:drawableLeft="@drawable/tab_personal_selected"
-        android:layout_below="@+id/top_framelayout"
-        android:hint="@string/account"/>
+        android:layout_below="@+id/phone_edittext"
+        android:maxLength="18"
+        android:hint="@string/nickname"/>
+
     <EditText
         android:id="@+id/password_edittext"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        style="@style/login_edittext_style"
-        android:layout_below="@id/account_edittext"
-        android:drawableLeft="@drawable/ic_password_normal"
+        style="@style/password_edittext_style"
+        android:layout_below="@id/nickname_edittext"
         android:hint="@string/password"/>
+
+    <EditText
+        android:id="@+id/password_confirm_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        style="@style/password_edittext_style"
+        android:layout_below="@id/password_edittext"
+        android:hint="@string/confirm_password"/>
+
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/bg_login_button"
         android:layout_margin="24dp"
-        android:text="@string/login"
+        android:text="@string/register"
         android:textColor="@color/white"
-        android:layout_below="@+id/password_edittext"
+        android:layout_below="@+id/password_confirm_edittext"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/login_button"
-        android:layout_marginTop="12dp"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:id="@+id/reset_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/reset_password"/>
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="2px"
-            android:layout_below="@id/reset_password"
-            android:layout_alignLeft="@id/reset_password"
-            android:layout_alignRight="@id/reset_password"
-            android:background="@color/theme_color"/>
-    </RelativeLayout>
 
 </RelativeLayout>

@@ -5,7 +5,7 @@
              android:layout_height="match_parent"
              android:orientation="vertical"
              android:background="@color/lite_gray"
-             tools:context="com.hoshi.graduationproject.personal.PersonalFragment">
+             tools:context="com.hoshi.graduationproject.fragment.PersonalFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -51,12 +51,11 @@
                 fresco:roundAsCircle="true"/>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/nickname_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="left|center_vertical"
-                android:text="@string/no_login"
                 android:textColor="@color/black"/>
 
             <ImageView
@@ -96,10 +95,11 @@
                     android:text="@string/trends"/>
 
                 <TextView
+                    android:id="@+id/trends_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="79"/>
+                    android:text="@string/empty_number"/>
             </LinearLayout>
 
             <View
@@ -126,10 +126,11 @@
                     android:text="@string/follows"/>
 
                 <TextView
+                    android:id="@+id/follows_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="25"/>
+                    android:text="@string/empty_number"/>
             </LinearLayout>
 
             <View
@@ -156,10 +157,11 @@
                     android:text="@string/fans"/>
 
                 <TextView
+                    android:id="@+id/fans_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="12"/>
+                    android:text="@string/empty_number"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

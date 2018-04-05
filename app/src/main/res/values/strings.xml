@@ -8,6 +8,7 @@
     <string name="personal">个人</string>
 
     <!--personal-->
+    <string name="presonal_detail">我的资料</string>
     <string name="trends">动态</string>
     <string name="follows">关注</string>
     <string name="fans">粉丝</string>
@@ -16,12 +17,27 @@
     <string name="feedback">反馈</string>
     <string name="music_clock">音乐闹钟</string>
 
+    <string name="presonal_avatar">头像</string>
+    <string name="presonal_nickname">昵称</string>
+    <string name="presonal_sex">性别</string>
+    <string name="presonal_birthday">生日</string>
+    <string name="presonal_profile">个人简介</string>
+    <string name="secret">保密</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+
     <string name="login">登录</string>
+    <string name="register">注册</string>
     <string name="no_login">暂未登录</string>
+    <string name="please_login">请先登录</string>
     <string name="logout">退出登录</string>
-    <string name="reset_password">重设密码</string>
+    <string name="forget_password">忘记密码</string>
     <string name="account">账号</string>
     <string name="password">密码</string>
+    <string name="phone_number">手机号</string>
+    <string name="nickname">昵称</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="empty_number">--</string>
 
     <!--my music-->
     <string name="local_music">本地音乐</string>
@@ -38,6 +54,20 @@
     <string name="download">下载</string>
     <string name="hint_search_music">请输入歌曲名</string>
 
+    <!--friends-->
+    <string name="no_trends">暂时还没有内容，立刻发表你的动态吧</string>
+    <string name="no_follows">你没有关注任何人</string>
+    <string name="no_fans">你暂时还没有粉丝</string>
+    <string name="no_login_trends">请登录后再查看好友动态</string>
+    <string name="share_trends">分享动态</string>
+    <string name="send">发送</string>
+    <string name="talk_something">一起聊聊吧~</string>
+    <string name="add_music">给动态配上音乐吧~</string>
+    <string name="null_trends">你还没有输入动态呢</string>
+
+    <!--connection-->
+    <string name="request_fail">请求失败，请检查网络连接</string>
+    <!--playing-->
     <string name="sure">确定</string>
     <string name="cancel">取消</string>
     <string name="share">分享</string>

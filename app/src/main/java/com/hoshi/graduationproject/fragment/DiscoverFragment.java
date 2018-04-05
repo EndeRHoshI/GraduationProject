@@ -1,4 +1,4 @@
-package com.hoshi.graduationproject.discover;
+package com.hoshi.graduationproject.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hoshi.graduationproject.R;
 import com.hoshi.graduationproject.activity.PlayActivity;
+import com.hoshi.graduationproject.activity.RankDetailActivity;
 import com.hoshi.graduationproject.activity.SearchActivity;
-import com.hoshi.graduationproject.fragment.BaseFragment;
 import com.hoshi.graduationproject.utils.ClickManager;
 
 import org.json.JSONArray;

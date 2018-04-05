@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/trends_avatar"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_margin="14dp"
+        fresco:placeholderImage="@drawable/ic_default_user"
+        fresco:roundAsCircle="true"
+        android:src="@drawable/default_artist"/>
+
+    <LinearLayout
+        android:id="@+id/trends_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:layout_toRightOf="@id/trends_avatar"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/trends_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EndeRHoshI"/>
+
+            <TextView
+                android:id="@+id/trends_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/trends_name"
+                android:textColor="@color/gray"
+                android:text="分享动态"/>
+
+            <TextView
+                android:id="@+id/trends_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/trends_name"
+                android:textSize="11sp"
+                android:text="3月24日"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/trends_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/lite_gray"
+            android:text="Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/trends_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_trends_comment"
+                    android:drawablePadding="4dp"
+                    android:text="2"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/trends_good"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_trends_good"
+                    android:drawablePadding="4dp"
+                    android:text="3"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_below="@id/trends_content_layout"
+        android:background="@color/lite_gray" />
+</RelativeLayout>

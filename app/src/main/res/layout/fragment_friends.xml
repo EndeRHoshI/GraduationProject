@@ -1,36 +1,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.hoshi.graduationproject.friends.FriendsFragment"
-             android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hoshi.graduationproject.fragment.FriendsFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/theme_color">
 
+        <ImageView
+            android:id="@+id/add_trends"
+            style="@style/top_image_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:padding="8dp"
+            android:src="@drawable/ic_plus_white" />
+
         <TextView
-            android:id="@+id/textView"
+            style="@style/top_text_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/top_text_style"
-            android:text="@string/friends"/>
+            android:padding="5dp"
+            android:text="@string/friends" />
 
         <ImageView
             android:id="@+id/loading_button"
+            style="@style/top_image_style"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            style="@style/top_image_style"
-            android:src="@drawable/top_loading1"
             android:layout_gravity="right"
-            android:padding="8dp"/>
+            android:padding="8dp"
+            android:src="@drawable/top_loading1" />
     </FrameLayout>
 
-    <Button
-        android:id="@+id/testButton"
+    <TextView
+        android:id="@+id/no_trends"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="图片测试"/>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_login_trends" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/trends_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

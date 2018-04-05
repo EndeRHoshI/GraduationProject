@@ -43,50 +43,50 @@ import java.util.List;
 
 public class OnlineMusicActivity extends BaseActivity implements OnItemClickListener
         , OnMoreClickListener, AutoLoadListView.OnLoadListener {
-    private static final int MUSIC_LIST_SIZE = 20;
+  private static final int MUSIC_LIST_SIZE = 20;
 
-    @Bind(R.id.lv_online_music_list)
-    private AutoLoadListView lvOnlineMusic;
-    @Bind(R.id.ll_loading)
-    private LinearLayout llLoading;
-    @Bind(R.id.ll_load_fail)
-    private LinearLayout llLoadFail;
-    private View vHeader;
-    private SheetInfo mListInfo;
-    private OnlineMusicList mOnlineMusicList;
-    private List<OnlineMusic> mMusicList = new ArrayList<>();
-    private OnlineMusicAdapter mAdapter = new OnlineMusicAdapter(mMusicList);
-    private int mOffset = 0;
+  @Bind(R.id.lv_online_music_list)
+  private AutoLoadListView lvOnlineMusic;
+  @Bind(R.id.ll_loading)
+  private LinearLayout llLoading;
+  @Bind(R.id.ll_load_fail)
+  private LinearLayout llLoadFail;
+  private View vHeader;
+  private SheetInfo mListInfo;
+  private OnlineMusicList mOnlineMusicList;
+  private List<OnlineMusic> mMusicList = new ArrayList<>();
+  private OnlineMusicAdapter mAdapter = new OnlineMusicAdapter(mMusicList);
+  private int mOffset = 0;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_online_music);
-    }
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_online_music);
+  }
 
-    @Override
-    protected void onServiceBound() {
-        mListInfo = (SheetInfo) getIntent().getSerializableExtra(Extras.MUSIC_LIST_TYPE);
-        setTitle(mListInfo.getTitle());
+  @Override
+  protected void onServiceBound() {
+    mListInfo = (SheetInfo) getIntent().getSerializableExtra(Extras.MUSIC_LIST_TYPE);
+    setTitle(mListInfo.getTitle());
 
-        initView();
-        onLoad();
-    }
+    initView();
+    onLoad();
+  }
 
-    private void initView() {
-        vHeader = LayoutInflater.from(this).inflate(R.layout.activity_online_music_list_header, null);
-        AbsListView.LayoutParams params = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ScreenUtils.dp2px(150));
-        vHeader.setLayoutParams(params);
-        lvOnlineMusic.addHeaderView(vHeader, null, false);
-        lvOnlineMusic.setAdapter(mAdapter);
-        lvOnlineMusic.setOnLoadListener(this);
-        ViewUtils.changeViewState(lvOnlineMusic, llLoading, llLoadFail, LoadStateEnum.LOADING);
+  private void initView() {
+    vHeader = LayoutInflater.from(this).inflate(R.layout.activity_online_music_list_header, null);
+    AbsListView.LayoutParams params = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ScreenUtils.dp2px(150));
+    vHeader.setLayoutParams(params);
+    lvOnlineMusic.addHeaderView(vHeader, null, false);
+    lvOnlineMusic.setAdapter(mAdapter);
+    lvOnlineMusic.setOnLoadListener(this);
+    ViewUtils.changeViewState(lvOnlineMusic, llLoading, llLoadFail, LoadStateEnum.LOADING);
 
-        lvOnlineMusic.setOnItemClickListener(this);
-        mAdapter.setOnMoreClickListener(this);
-    }
+    lvOnlineMusic.setOnItemClickListener(this);
+    mAdapter.setOnMoreClickListener(this);
+  }
 
-    private void getMusic(final int offset) {
+  private void getMusic(final int offset) {
         /*HttpClient.getSongListInfo(mListInfo.getType(), MUSIC_LIST_SIZE, offset, new HttpCallback<OnlineMusicList>() {
             @Override
             public void onSuccess(OnlineMusicList response) {
@@ -123,129 +123,129 @@ public class OnlineMusicActivity extends BaseActivity implements OnItemClickList
                 }
             }
         });*/
-    }
+  }
 
-    @Override
-    public void onLoad() {
-        getMusic(mOffset);
-    }
+  @Override
+  public void onLoad() {
+    getMusic(mOffset);
+  }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        play((OnlineMusic) parent.getAdapter().getItem(position));
-    }
+  @Override
+  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    play((OnlineMusic) parent.getAdapter().getItem(position));
+  }
 
-    @Override
-    public void onMoreClick(int position) {
-        final OnlineMusic onlineMusic = mMusicList.get(position);
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle(mMusicList.get(position).getTitle());
-        String path = FileUtils.getMusicDir() + FileUtils.getMp3FileName(onlineMusic.getArtist_name(), onlineMusic.getTitle());
-        File file = new File(path);
-        int itemsId = file.exists() ? R.array.online_music_dialog_without_download : R.array.online_music_dialog;
-        dialog.setItems(itemsId, (dialog1, which) -> {
-            switch (which) {
-                case 0:// 分享
-                    share(onlineMusic);
-                    break;
-                case 1:// 查看歌手信息
-                    artistInfo(onlineMusic);
-                    break;
-                case 2:// 下载
-                    download(onlineMusic);
-                    break;
-            }
-        });
-        dialog.show();
-    }
+  @Override
+  public void onMoreClick(int position) {
+    final OnlineMusic onlineMusic = mMusicList.get(position);
+    AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+    dialog.setTitle(mMusicList.get(position).getTitle());
+    String path = FileUtils.getMusicDir() + FileUtils.getMp3FileName(onlineMusic.getArtist_name(), onlineMusic.getTitle());
+    File file = new File(path);
+    int itemsId = file.exists() ? R.array.online_music_dialog_without_download : R.array.online_music_dialog;
+    dialog.setItems(itemsId, (dialog1, which) -> {
+      switch (which) {
+        case 0:// 分享
+          share(onlineMusic);
+          break;
+        case 1:// 查看歌手信息
+          artistInfo(onlineMusic);
+          break;
+        case 2:// 下载
+          download(onlineMusic);
+          break;
+      }
+    });
+    dialog.show();
+  }
 
-    private void initHeader() {
-        final ImageView ivHeaderBg = (ImageView)vHeader.findViewById(R.id.iv_header_bg);
-        final ImageView ivCover = (ImageView)vHeader.findViewById(R.id.iv_cover);
-        TextView tvTitle = (TextView)vHeader.findViewById(R.id.tv_title);
-        TextView tvUpdateDate = (TextView)vHeader.findViewById(R.id.tv_update_date);
-        TextView tvComment = (TextView)vHeader.findViewById(R.id.tv_comment);
-        tvTitle.setText(mOnlineMusicList.getBillboard().getName());
-        tvUpdateDate.setText(getString(R.string.recent_update, mOnlineMusicList.getBillboard().getUpdate_date()));
-        tvComment.setText(mOnlineMusicList.getBillboard().getComment());
-        Glide.with(this)
-                .load(mOnlineMusicList.getBillboard().getPic_s640())
-                .asBitmap()
-                .placeholder(R.drawable.default_cover)
-                .error(R.drawable.default_cover)
-                .override(200, 200)
-                .into(new SimpleTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                        ivCover.setImageBitmap(resource);
-                        ivHeaderBg.setImageBitmap(ImageUtils.blur(resource));
-                    }
-                });
-    }
+  private void initHeader() {
+    final ImageView ivHeaderBg = (ImageView) vHeader.findViewById(R.id.iv_header_bg);
+    final ImageView ivCover = (ImageView) vHeader.findViewById(R.id.iv_cover);
+    TextView tvTitle = (TextView) vHeader.findViewById(R.id.tv_title);
+    TextView tvUpdateDate = (TextView) vHeader.findViewById(R.id.tv_update_date);
+    TextView tvComment = (TextView) vHeader.findViewById(R.id.tv_comment);
+    tvTitle.setText(mOnlineMusicList.getBillboard().getName());
+    tvUpdateDate.setText(getString(R.string.recent_update, mOnlineMusicList.getBillboard().getUpdate_date()));
+    tvComment.setText(mOnlineMusicList.getBillboard().getComment());
+    Glide.with(this)
+            .load(mOnlineMusicList.getBillboard().getPic_s640())
+            .asBitmap()
+            .placeholder(R.drawable.default_cover)
+            .error(R.drawable.default_cover)
+            .override(200, 200)
+            .into(new SimpleTarget<Bitmap>() {
+              @Override
+              public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                ivCover.setImageBitmap(resource);
+                ivHeaderBg.setImageBitmap(ImageUtils.blur(resource));
+              }
+            });
+  }
 
-    private void play(OnlineMusic onlineMusic) {
-        new PlayOnlineMusic(this, onlineMusic) {
-            @Override
-            public void onPrepare() {
-                showProgress();
-            }
+  private void play(OnlineMusic onlineMusic) {
+    new PlayOnlineMusic(this, onlineMusic) {
+      @Override
+      public void onPrepare() {
+        showProgress();
+      }
 
-            @Override
-            public void onExecuteSuccess(Music music) {
-                cancelProgress();
-                AudioPlayer.get().addAndPlay(music);
-                ToastUtils.show("已添加到播放列表");
-            }
+      @Override
+      public void onExecuteSuccess(Music music) {
+        cancelProgress();
+        AudioPlayer.get().addAndPlay(music);
+        ToastUtils.show("已添加到播放列表");
+      }
 
-            @Override
-            public void onExecuteFail(Exception e) {
-                cancelProgress();
-                ToastUtils.show(R.string.unable_to_play);
-            }
-        }.execute();
-    }
+      @Override
+      public void onExecuteFail(Exception e) {
+        cancelProgress();
+        ToastUtils.show(R.string.unable_to_play);
+      }
+    }.execute();
+  }
 
-    private void share(final OnlineMusic onlineMusic) {
-        new ShareOnlineMusic(this, onlineMusic.getTitle(), onlineMusic.getSong_id()) {
-            @Override
-            public void onPrepare() {
-                showProgress();
-            }
+  private void share(final OnlineMusic onlineMusic) {
+    new ShareOnlineMusic(this, onlineMusic.getTitle(), onlineMusic.getSong_id()) {
+      @Override
+      public void onPrepare() {
+        showProgress();
+      }
 
-            @Override
-            public void onExecuteSuccess(Void aVoid) {
-                cancelProgress();
-            }
+      @Override
+      public void onExecuteSuccess(Void aVoid) {
+        cancelProgress();
+      }
 
-            @Override
-            public void onExecuteFail(Exception e) {
-                cancelProgress();
-            }
-        }.execute();
-    }
+      @Override
+      public void onExecuteFail(Exception e) {
+        cancelProgress();
+      }
+    }.execute();
+  }
 
-    private void artistInfo(OnlineMusic onlineMusic) {
-        ArtistInfoActivity.start(this, onlineMusic.getTing_uid());
-    }
+  private void artistInfo(OnlineMusic onlineMusic) {
+    ArtistInfoActivity.start(this, onlineMusic.getTing_uid());
+  }
 
-    private void download(final OnlineMusic onlineMusic) {
-        new DownloadOnlineMusic(this, onlineMusic) {
-            @Override
-            public void onPrepare() {
-                showProgress();
-            }
+  private void download(final OnlineMusic onlineMusic) {
+    new DownloadOnlineMusic(this, onlineMusic) {
+      @Override
+      public void onPrepare() {
+        showProgress();
+      }
 
-            @Override
-            public void onExecuteSuccess(Void aVoid) {
-                cancelProgress();
-                ToastUtils.show(getString(R.string.now_download, onlineMusic.getTitle()));
-            }
+      @Override
+      public void onExecuteSuccess(Void aVoid) {
+        cancelProgress();
+        ToastUtils.show(getString(R.string.now_download, onlineMusic.getTitle()));
+      }
 
-            @Override
-            public void onExecuteFail(Exception e) {
-                cancelProgress();
-                ToastUtils.show(R.string.unable_to_download);
-            }
-        }.execute();
-    }
+      @Override
+      public void onExecuteFail(Exception e) {
+        cancelProgress();
+        ToastUtils.show(R.string.unable_to_download);
+      }
+    }.execute();
+  }
 }

@@ -1,4 +1,4 @@
-package com.hoshi.graduationproject.discover;
+package com.hoshi.graduationproject.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hoshi.graduationproject.R;
-import com.hoshi.graduationproject.activity.BaseActivity;
-import com.hoshi.graduationproject.activity.PlayActivity;
 import com.hoshi.graduationproject.adapter.OnMoreClickListener;
 import com.hoshi.graduationproject.adapter.OnlineMusicAdapter;
 import com.hoshi.graduationproject.executor.PlayOnlineMusic;
@@ -262,6 +260,7 @@ public class RankDetailActivity extends BaseActivity implements View.OnClickList
   public void loadRankSongData() {
     lv_rankSongList.setAdapter(mAdapter);
     lv_rankSongList.setOnItemClickListener(this);
+    mAdapter.setOnMoreClickListener(this);
     /*lv_rankSongList.setAdapter(new rankListSongAdapter(getLayoutInflater(), mSongList));*/
     tv_rankSongListLoading.setVisibility(View.GONE);
     lv_rankSongList.setVisibility(View.VISIBLE);

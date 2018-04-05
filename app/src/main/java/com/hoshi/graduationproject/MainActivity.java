@@ -6,20 +6,17 @@ import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.hoshi.graduationproject.discover.DiscoverFragment;
-import com.hoshi.graduationproject.friends.FriendsFragment;
+import com.hoshi.graduationproject.fragment.DiscoverFragment;
+import com.hoshi.graduationproject.fragment.FriendsFragment;
 import com.hoshi.graduationproject.mymusic.MyMusicFragment;
-import com.hoshi.graduationproject.personal.PersonalFragment;
+import com.hoshi.graduationproject.fragment.PersonalFragment;
 import com.hoshi.graduationproject.utils.PermissionHelper;
 
 public class MainActivity extends AppCompatActivity {
 
   private static final String DISCOVER = "discover";
-
   private static final String FRIENDS = "friends";
-
   private static final String MYMUSIC = "mymusic";
-
   private static final String PERSONAL = "personal";
 
   private PermissionHelper mPermissionHelper;
