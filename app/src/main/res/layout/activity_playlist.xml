@@ -29,6 +29,7 @@
             android:src="@drawable/ic_back"/>
 
         <TextView
+            android:id="@+id/playlist_title"
             style="@style/top_text_style"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

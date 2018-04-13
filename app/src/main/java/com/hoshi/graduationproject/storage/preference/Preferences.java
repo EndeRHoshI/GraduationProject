@@ -136,6 +136,14 @@ public class Preferences {
     return getString("birthday", "");
   }
 
+  public static void saveProfile(String value) {
+    saveString("profile", value);
+  }
+
+  public static String getProfile() {
+    return getString("profile", "");
+  }
+
   public static void savePassword(String value) {
     saveString("password", value);
   }

@@ -27,6 +27,24 @@
             style="@style/top_text_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/friends_search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_menu_search"/>
+
+        <ImageView
+            android:id="@+id/friends_add_trends"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_plus_white"/>
     </FrameLayout>
 
     <android.support.v7.widget.RecyclerView

@@ -110,7 +110,7 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
       tv_sex.setText(R.string.female);
     }
     tv_birthday.setText(Preferences.getBirthday());
-    tv_presonal_profile.setText("haha");
+    tv_presonal_profile.setText(Preferences.getProfile());
   }
 
   private void showChangeNicknameDialog() {
@@ -124,18 +124,64 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
     // 使用setView()方法将布局显示到dialog
     alertDialogBuilder.setView(nameView);
 
-    final EditText userInput = (EditText) nameView.findViewById(R.id.change_nickname_edit);
+    final EditText userInput = (EditText) nameView.findViewById(R.id.change_profile_edit);
+
+    userInput.setHint(R.string.new_nicknam);
 
     // 设置Dialog按钮
     alertDialogBuilder
             .setPositiveButton("确认",
                     new DialogInterface.OnClickListener() {
                       public void onClick(DialogInterface dialog, int id) {
-                        // 获取edittext的内容,显示到textview
-                        sendChangeNicknameRequest(userInput.getText().toString());
+                        // 获取edittext的内容
+                        if (!userInput.getText().toString().equals(Preferences.getNickname())) {
+                          sendChangeNicknameRequest(userInput.getText().toString());
+                        }
                       }
                     })
             .setNegativeButton("取消",
+                    new DialogInterface.OnClickListener() {
+                      public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                      }
+                    });
+
+    // create alert dialog
+    AlertDialog alertDialog = alertDialogBuilder.create();
+
+    // show it
+    alertDialog.show();
+  }
+
+  private void showChangeProfileDialog() {
+    // 使用LayoutInflater来加载dialog_setname.xml布局
+    LayoutInflater layoutInflater = LayoutInflater.from(this);
+    View nameView = layoutInflater.inflate(R.layout.dialog_change_profile, null);
+
+    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+            this);
+
+    // 使用setView()方法将布局显示到dialog
+    alertDialogBuilder.setView(nameView);
+
+    final EditText userInput = nameView.findViewById(R.id.change_profile_edit);
+
+    userInput.setText(Preferences.getProfile());
+    userInput.setSelection(Preferences.getProfile().length());
+
+    // 设置Dialog按钮
+    alertDialogBuilder
+            .setTitle(R.string.change_profile)
+            .setPositiveButton("确认",
+                    new DialogInterface.OnClickListener() {
+                      public void onClick(DialogInterface dialog, int id) {
+                        // 获取edittext的内容
+                        if (!userInput.getText().toString().equals(Preferences.getNickname())) {
+                          sendChangeProfileRequest(userInput.getText().toString());
+                        }
+                      }
+                    })
+            .setNegativeButton(R.string.cancel,
                     new DialogInterface.OnClickListener() {
                       public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -194,8 +240,31 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
       public void requestSuccess(String result) throws Exception {
         JSONObject dataSuccessJson = new JSONObject(result);
         String info = dataSuccessJson.getString("info");
-        ToastUtils.show(info);
+        ToastUtils.show(birthday);
         Preferences.saveBirthday(birthday);
+
+        Message message = new Message();
+        message.what = UPDATE;
+        handler.sendMessage(message);
+      }
+      @Override
+      public void requestFailure(Request request, IOException e) {
+        ToastUtils.show(R.string.request_fail);
+      }
+    });
+  }
+
+  private void sendChangeProfileRequest(String profile) {
+    HashMap<String, String> params = new HashMap<>();
+    params.put("id", "" + Preferences.getId());
+    params.put("profile", profile);
+    OkhttpUtil.postFormRequest(ServerPath.CHANGE_PROFILE, params, new OkhttpUtil.DataCallBack(){
+      @Override
+      public void requestSuccess(String result) throws Exception {
+        JSONObject dataSuccessJson = new JSONObject(result);
+        String info = dataSuccessJson.getString("info");
+        ToastUtils.show(info);
+        Preferences.saveProfile(profile);
 
         Message message = new Message();
         message.what = UPDATE;
@@ -262,6 +331,7 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
         new DatePickerDialog(this, onDateSetListener, mYear, mMonth, mDay).show();
         break;
       case R.id.presonal_profile_layout:
+        showChangeProfileDialog();
         break;
     }
   }

@@ -38,7 +38,7 @@
             android:name=".activity.PicTestActivity"
             android:theme="@style/ImageTranslucentTheme" />
         <activity android:name=".activity.RankDetailActivity" />
-        <activity android:name=".mymusic.LocalMusicActivity" />
+        <activity android:name=".activity.LocalMusicActivity" />
         <activity android:name=".activity.PlayActivity" />
         <activity android:name=".activity.PlaylistActivity" />
         <activity
@@ -53,7 +53,10 @@
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.ShareActivity" />
         <activity android:name=".activity.PresonalActivity" />
-        <activity android:name=".activity.FriendsActivity"></activity>
+        <activity android:name=".activity.FriendsActivity" />
+        <activity android:name=".activity.FriendsDetailActivity" />
+        <activity android:name=".activity.FriendsTrendsActivity" />
+        <activity android:name=".activity.SongListActivity"></activity>
     </application>
 
 </manifest>

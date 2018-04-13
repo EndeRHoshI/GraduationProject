@@ -136,10 +136,10 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener,
   private void initViewPager() {
     View coverView = LayoutInflater.from(this).inflate(R.layout.fragment_play_page_cover, null);
     View lrcView = LayoutInflater.from(this).inflate(R.layout.fragment_play_page_lrc, null);
-    mAlbumCoverView = (AlbumCoverView) coverView.findViewById(R.id.album_cover_view);
-    mLrcViewSingle = (LrcView) coverView.findViewById(R.id.lrc_view_single);
-    mLrcViewFull = (LrcView) lrcView.findViewById(R.id.lrc_view_full);
-    sbVolume = (SeekBar) lrcView.findViewById(R.id.sb_volume);
+    mAlbumCoverView = coverView.findViewById(R.id.album_cover_view);
+    mLrcViewSingle = coverView.findViewById(R.id.lrc_view_single);
+    mLrcViewFull = lrcView.findViewById(R.id.lrc_view_full);
+    sbVolume = lrcView.findViewById(R.id.sb_volume);
     mAlbumCoverView.initNeedle(AudioPlayer.get().isPlaying());
     mLrcViewFull.setOnPlayClickListener(this);
     initVolume();
@@ -217,9 +217,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener,
         prev();
         break;
       case R.id.v_play_bar_playlist:
-        Context context = vPlayBarPlaylist.getContext();
-        Intent intent = new Intent(context, PlaylistActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, PlaylistActivity.class));
         break;
     }
   }

@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/change_profile_edit"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="20dp"
+        android:gravity="start"
+        android:textSize="15sp"
+        android:maxLength="140"
+        android:background="@null"/>
+
+</LinearLayout>

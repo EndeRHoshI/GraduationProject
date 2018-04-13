@@ -16,12 +16,17 @@
     <string name="night_mode">夜间模式</string>
     <string name="feedback">反馈</string>
     <string name="music_clock">音乐闹钟</string>
+    <string name="change_profile">修改个人简介</string>
+    <string name="double_arrow">⇆⇋</string>
 
     <string name="presonal_avatar">头像</string>
     <string name="presonal_nickname">昵称</string>
     <string name="presonal_sex">性别</string>
     <string name="presonal_birthday">生日</string>
     <string name="presonal_profile">个人简介</string>
+    <string name="presonal_information">个人信息</string>
+    <string name="new_nicknam">新昵称</string>
+    <string name="friend_nicknam">好友昵称</string>
     <string name="secret">保密</string>
     <string name="male">男</string>
     <string name="female">女</string>
@@ -38,12 +43,19 @@
     <string name="nickname">昵称</string>
     <string name="confirm_password">确认密码</string>
     <string name="empty_number">--</string>
+    <string name="null_content">请输入内容</string>
 
     <!--my music-->
     <string name="local_music">本地音乐</string>
     <string name="recent_played">最近播放</string>
-    <string name="my_collection">我的收藏</string>
+    <string name="my_collection">歌单收藏</string>
     <string name="personal_song_list">个人歌单</string>
+    <string name="song_list">歌单</string>
+    <string name="song_list_name">歌单名称</string>
+    <string name="no_song_list">还没有任何歌单</string>
+    <string name="collect">收藏</string>
+    <string name="already_collect">已收藏</string>
+    <string name="my_music_no_login_hint">登录后可查看歌单收藏和个人歌单</string>
 
     <!--dicover-->
     <string name="official_rank">云音乐官方榜单</string>
@@ -56,14 +68,25 @@
 
     <!--friends-->
     <string name="no_trends">暂时还没有内容，立刻发表你的动态吧</string>
+    <string name="no_trends_friends">暂时还没有发表任何内容</string>
     <string name="no_follows">你没有关注任何人</string>
     <string name="no_fans">你暂时还没有粉丝</string>
     <string name="no_login_trends">请登录后再查看好友动态</string>
+    <string name="no_profile">这个用户很懒，什么也没有写</string>
     <string name="share_trends">分享动态</string>
+    <string name="comment">评论</string>
+    <string name="comment_num">评论(%1$d)</string>
     <string name="send">发送</string>
     <string name="talk_something">一起聊聊吧~</string>
     <string name="add_music">给动态配上音乐吧~</string>
     <string name="null_trends">你还没有输入动态呢</string>
+    <string name="not_yourself_nickname">请不要输入自己的昵称</string>
+    <string name="follow_fans">关注 %1$d    |    粉丝 %2$d</string>
+    <string name="friend_birthday">生日：%1$s</string>
+    <string name="friend_sex">性别：%1$s</string>
+    <string name="button_no_follow">＋ 关注</string>
+    <string name="button_already_follow">√ 已关注</string>
+    <string name="button_follow_each_other">⇋ 互相关注</string>
 
     <!--connection-->
     <string name="request_fail">请求失败，请检查网络连接</string>

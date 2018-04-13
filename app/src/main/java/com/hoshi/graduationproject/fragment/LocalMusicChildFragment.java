@@ -1,4 +1,4 @@
-package com.hoshi.graduationproject.mymusic;
+package com.hoshi.graduationproject.fragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -30,7 +30,6 @@ import com.hoshi.graduationproject.application.AppCache;
 import com.hoshi.graduationproject.constants.Keys;
 import com.hoshi.graduationproject.constants.RequestCode;
 import com.hoshi.graduationproject.constants.RxBusTags;
-import com.hoshi.graduationproject.fragment.BaseFragment;
 import com.hoshi.graduationproject.model.Music;
 import com.hoshi.graduationproject.service.AudioPlayer;
 import com.hoshi.graduationproject.utils.MusicUtils;

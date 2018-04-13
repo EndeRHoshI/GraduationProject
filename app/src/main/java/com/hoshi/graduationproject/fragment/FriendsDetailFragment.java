@@ -1,4 +1,4 @@
-package com.hoshi.graduationproject.mymusic;
+package com.hoshi.graduationproject.fragment;
 
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -7,28 +7,31 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hoshi.graduationproject.R;
-import com.hoshi.graduationproject.fragment.AttachDialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalMusicFragment extends AttachDialogFragment {
+public class FriendsDetailFragment extends AttachDialogFragment {
 
   private ViewPager viewPager;
-  private int page = 0;
-  private ActionBar ab;
+  private int page = 0, friend_id = 0, friend_sex = 0;
+  private String friend_birthday, friend_profile;
   private String[] title;
 
-  public static final LocalMusicFragment newInstance(int page, String[] title) {
-    LocalMusicFragment f = new LocalMusicFragment();
+  public static final FriendsDetailFragment newInstance(int page, String[] title, int friend_id,
+                                                        String friend_birthday, String friend_profile, int sex) {
+    FriendsDetailFragment f = new FriendsDetailFragment();
     Bundle bdl = new Bundle(1);
     bdl.putInt("page_number", page);
+    bdl.putInt("friend_id", friend_id);
+    bdl.putInt("friend_sex", sex);
+    bdl.putString("friend_birthday", friend_birthday);
+    bdl.putString("friend_profile", friend_profile);
     bdl.putStringArray("title", title);
     f.setArguments(bdl);
     return f;
@@ -47,6 +50,10 @@ public class LocalMusicFragment extends AttachDialogFragment {
     if (getArguments() != null) {
       page = getArguments().getInt("page_number");
       title = getArguments().getStringArray("title");
+      friend_id = getArguments().getInt("friend_id");
+      friend_sex = getArguments().getInt("friend_sex");
+      friend_birthday = getArguments().getString("friend_birthday");
+      friend_profile = getArguments().getString("friend_profile");
     }
   }
 
@@ -60,7 +67,7 @@ public class LocalMusicFragment extends AttachDialogFragment {
       viewPager.setOffscreenPageLimit(3);
     }
 
-    final TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
+    final TabLayout tabLayout = rootView.findViewById(R.id.tabs);
     tabLayout.setupWithViewPager(viewPager);
     tabLayout.setTabTextColors(R.color.text_color, getResources().getColor(R.color.theme_color));
     tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.theme_color));
@@ -70,11 +77,21 @@ public class LocalMusicFragment extends AttachDialogFragment {
   }
 
   private void setupViewPager(ViewPager viewPager) {
+    Bundle trendsBundle = new Bundle();
+    Bundle aboutBundle = new Bundle();
+    trendsBundle.putInt("friend_id", friend_id);
+    aboutBundle.putString("friend_birthday", friend_birthday);
+    aboutBundle.putString("friend_profile", friend_profile);
+    aboutBundle.putInt("friend_sex", friend_sex);
+    FriendsTrendsFragment mFriendsTrendsFragment = new FriendsTrendsFragment();
+    FriendsAboutFragment mFriendsAboutFragment = new FriendsAboutFragment();
+    mFriendsAboutFragment.setArguments(aboutBundle);
+    mFriendsTrendsFragment.setArguments(trendsBundle);
+
     Adapter adapter = new Adapter(getChildFragmentManager());
-    adapter.addFragment(new LocalMusicChildFragment(), title[0]);
-    adapter.addFragment(new LocalMusicChildFragment(), title[1]);
-    adapter.addFragment(new LocalMusicChildFragment(), title[2]);
-    adapter.addFragment(new LocalMusicChildFragment(), title[3]);
+    adapter.addFragment(new FriendsMusicFragment(), title[0]);
+    adapter.addFragment(mFriendsTrendsFragment, title[1]);
+    adapter.addFragment(mFriendsAboutFragment, title[2]);
 
     viewPager.setAdapter(adapter);
   }

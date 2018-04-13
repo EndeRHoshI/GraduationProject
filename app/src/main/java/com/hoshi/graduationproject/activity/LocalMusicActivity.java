@@ -1,4 +1,4 @@
-package com.hoshi.graduationproject.mymusic;
+package com.hoshi.graduationproject.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.hoshi.graduationproject.R;
-import com.hoshi.graduationproject.activity.BaseActivity;
-import com.hoshi.graduationproject.activity.PlayActivity;
+import com.hoshi.graduationproject.fragment.LocalMusicFragment;
 import com.hoshi.graduationproject.utils.ClickManager;
 
 public class LocalMusicActivity extends BaseActivity implements View.OnClickListener{

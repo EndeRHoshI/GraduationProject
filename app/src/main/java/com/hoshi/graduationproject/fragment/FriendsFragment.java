@@ -14,10 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.hoshi.graduationproject.R;
+import com.hoshi.graduationproject.activity.FriendsTrendsActivity;
 import com.hoshi.graduationproject.activity.PlayActivity;
 import com.hoshi.graduationproject.activity.ShareActivity;
+import com.hoshi.graduationproject.adapter.FollowsAdapter;
 import com.hoshi.graduationproject.adapter.TrendsAdapter;
 import com.hoshi.graduationproject.model.FriendsTrends;
 import com.hoshi.graduationproject.storage.preference.Preferences;
@@ -57,6 +58,20 @@ public class FriendsFragment extends BaseFragment implements View.OnClickListene
         switch (msg.what) {
           case READY:
             TrendsAdapter mTrendsAdapter = new TrendsAdapter(mDatas, getContext());
+            mTrendsAdapter.setOnItemClickLitener(new FollowsAdapter.OnItemClickLitener() {
+              @Override
+              public void onItemClick(View view, int position) {
+                FriendsTrends tempFriendsTrends = mDatas.get(position);
+                startActivity(new Intent(getContext(), FriendsTrendsActivity.class)
+                        .putExtra("trends_avatar", tempFriendsTrends.getTrends_avatar())
+                        .putExtra("trends_name", tempFriendsTrends.getTrends_name())
+                        .putExtra("trends_type", tempFriendsTrends.getTrends_type())
+                        .putExtra("trends_date", tempFriendsTrends.getTrends_date())
+                        .putExtra("trends_content", tempFriendsTrends.getTrends_content())
+                        .putExtra("trends_comment", tempFriendsTrends.getTrends_comment())
+                        .putExtra("trends_good", tempFriendsTrends.getTrends_good()));
+              }
+            });
             mRecyclerView.setAdapter(mTrendsAdapter);
           default:
             break;
@@ -86,7 +101,7 @@ public class FriendsFragment extends BaseFragment implements View.OnClickListene
 
     ClickManager.init(getActivity(), this, R.id.loading_button,
             R.id.add_trends);
-    super.onCreate(savedInstanceState);
+    super.onActivityCreated(savedInstanceState);
   }
 
   @Override
@@ -97,13 +112,13 @@ public class FriendsFragment extends BaseFragment implements View.OnClickListene
   }
 
   public void checkLogin() {
-    String id = "" + Preferences.getId();
-    if (id.equals("")) {
+    String nickname = "" + Preferences.getNickname();
+    if (nickname.equals("")) {
       changeViewStat(LOGOUT_STAT);
       return;
     }
     HashMap<String, String> params = new HashMap<>();
-    params.put("id", id);
+    params.put("id", "" + Preferences.getId());
     OkhttpUtil.postFormRequest(ServerPath.CHECK_LOGIN, params, new OkhttpUtil.DataCallBack() {
       @Override
       public void requestSuccess(String result) throws Exception {
@@ -141,7 +156,7 @@ public class FriendsFragment extends BaseFragment implements View.OnClickListene
   private void sendGetTrendsRequest() {
     HashMap<String, String> params = new HashMap<>();
     params.put("id", "" + Preferences.getId());
-    OkhttpUtil.postFormRequest(ServerPath.GET_TRENDS_BY_ID, params, new OkhttpUtil.DataCallBack(){
+    OkhttpUtil.postFormRequest(ServerPath.GET_FRIENDS_TRENDS_BY_ID, params, new OkhttpUtil.DataCallBack(){
       @Override
       public void requestSuccess(String result) throws Exception {
         mDatas.clear();
@@ -170,23 +185,6 @@ public class FriendsFragment extends BaseFragment implements View.OnClickListene
         ToastUtils.show(R.string.request_fail);
       }
     });
-  }
-
-  public class TrendsHolder extends RecyclerView.ViewHolder {
-    public SimpleDraweeView trends_avatar;
-    public TextView trends_name, trends_type, trends_date, trends_content, trends_comment, trends_good;
-
-    //实现的方法
-    public TrendsHolder(View itemView) {
-      super(itemView);
-      trends_avatar  = itemView.findViewById(R.id.trends_avatar );
-      trends_name    = itemView.findViewById(R.id.trends_name   );
-      trends_type    = itemView.findViewById(R.id.trends_type   );
-      trends_date    = itemView.findViewById(R.id.trends_date   );
-      trends_content = itemView.findViewById(R.id.trends_content);
-      trends_comment = itemView.findViewById(R.id.trends_comment);
-      trends_good    = itemView.findViewById(R.id.trends_good   );
-    }
   }
 
   @Override

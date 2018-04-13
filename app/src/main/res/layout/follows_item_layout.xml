@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/follows_avatar"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_margin="14dp"
+        fresco:placeholderImage="@drawable/ic_default_user"
+        fresco:roundAsCircle="true"
+        android:src="@drawable/default_artist"/>
+
+    <LinearLayout
+        android:id="@+id/trends_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/follows_avatar"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/follows_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_man"
+                android:drawablePadding="5dp"
+                android:text="EndeRHoshI"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/follows_presonal_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/follows_name"
+                android:visibility="visible"
+                android:textSize="13sp"
+                android:text="Hello world!"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_below="@id/follows_avatar"
+        android:background="@color/lite_gray" />
+</RelativeLayout>

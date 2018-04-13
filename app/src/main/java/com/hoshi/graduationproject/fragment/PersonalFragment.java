@@ -192,21 +192,21 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
         break;
       case R.id.trends_layout:
         if (!Preferences.getNickname().equals("")) {
-          startActivity(new Intent(getActivity(), FriendsActivity.class).putExtra("type", 1));
+          startActivity(new Intent(getActivity(), FriendsActivity.class).putExtra("type", 0));
         } else {
           Toast.makeText(getActivity(), R.string.please_login, Toast.LENGTH_SHORT).show();
         }
         break;
       case R.id.follows_layout:
         if (!Preferences.getNickname().equals("")) {
-          startActivity(new Intent(getActivity(), FriendsActivity.class).putExtra("type", 2));
+          startActivity(new Intent(getActivity(), FriendsActivity.class).putExtra("type", 1));
         } else {
           Toast.makeText(getActivity(), R.string.please_login, Toast.LENGTH_SHORT).show();
         }
         break;
       case R.id.fans_layout:
         if (!Preferences.getNickname().equals("")) {
-          startActivity(new Intent(getActivity(), FriendsActivity.class).putExtra("type", 3));
+          startActivity(new Intent(getActivity(), FriendsActivity.class).putExtra("type", 2));
         } else {
           Toast.makeText(getActivity(), R.string.please_login, Toast.LENGTH_SHORT).show();
         }

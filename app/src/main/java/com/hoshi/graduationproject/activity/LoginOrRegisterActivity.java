@@ -60,6 +60,7 @@ public class LoginOrRegisterActivity extends AppCompatActivity implements View.O
           JSONObject friendsJson = dataSuccessJson.getJSONObject("friends");
           Preferences.saveNickname(dataSuccessJson.getString("nickname"));
           Preferences.saveAvatar(dataSuccessJson.getString("avatar"));
+          Preferences.saveProfile(dataSuccessJson.getString("profile"));
           Preferences.saveSex(dataSuccessJson.getInt("sex"));
           Preferences.saveBirthday(dataSuccessJson.getString("birthday"));
           Preferences.saveNickname(dataSuccessJson.getString("nickname"));

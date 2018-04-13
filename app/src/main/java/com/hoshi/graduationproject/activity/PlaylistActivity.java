@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.hoshi.graduationproject.R;
 import com.hoshi.graduationproject.adapter.OnMoreClickListener;
@@ -32,6 +33,15 @@ public class PlaylistActivity extends BaseActivity implements AdapterView.OnItem
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_playlist);
+
+    // 如果有传入extra为1的话就是最近播放列表，否则是普通的播放列表
+    if (getIntent().getIntExtra("title", 0) == 1) {
+      TextView temp_tv = findViewById(R.id.playlist_title);
+      temp_tv.setText(R.string.recent_played);
+    } else {
+      TextView temp_tv = findViewById(R.id.playlist_title);
+      temp_tv.setText(R.string.activity_playlist);
+    }
   }
 
   @Override

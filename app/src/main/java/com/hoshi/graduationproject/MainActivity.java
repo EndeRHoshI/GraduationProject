@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.hoshi.graduationproject.fragment.DiscoverFragment;
 import com.hoshi.graduationproject.fragment.FriendsFragment;
-import com.hoshi.graduationproject.mymusic.MyMusicFragment;
+import com.hoshi.graduationproject.fragment.MyMusicFragment;
 import com.hoshi.graduationproject.fragment.PersonalFragment;
 import com.hoshi.graduationproject.utils.PermissionHelper;
 

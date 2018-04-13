@@ -43,12 +43,24 @@ public class ServerPath {
    * @param id
    */
   public static String CHECK_LOGIN = BASE_PATH + "/checklogin";
-  
+
   /**
-   * 获取动态
+   * 我的音乐登录检查
+   * @param id
+   */
+  public static String CHECK_LOGIN_MY_MUSIC = BASE_PATH + "/checkloginmymusic";
+
+  /**
+   * 获取某个id的动态
    * @param id
    */
   public static String GET_TRENDS_BY_ID = BASE_PATH + "/gettrendsbyid";
+
+  /**
+   * 获取某个id的所有朋友的动态
+   * @param id
+   */
+  public static String GET_FRIENDS_TRENDS_BY_ID = BASE_PATH + "/getfriendstrendsbyid";
 
   /**
    * 修改昵称
@@ -65,6 +77,70 @@ public class ServerPath {
   /**
    * 修改生日
    * @param id
+   * @param birthday
    */
   public static String CHANGE_BIRTHDAY = BASE_PATH + "/changebirthday";
+
+  /**
+   * 修改个人简介
+   * @param id
+   * @param profile
+   */
+  public static String CHANGE_PROFILE = BASE_PATH + "/changeprofile";
+
+  /**
+   * 查找好友
+   * @param id
+   */
+  public static String SEARCH_FRIENDS = BASE_PATH + "/searchfriends";
+
+  /**
+   * 添加关注
+   * @param id
+   */
+  public static String FOLLOW = BASE_PATH + "/follow";
+
+  /**
+   * 取消关注
+   * @param id
+   */
+  public static String CANCEL = BASE_PATH + "/cancel";
+
+  /**
+   * 获得全部关注列表
+   */
+  public static String GET_FOLLOWS = BASE_PATH + "/getfollows";
+
+  /**
+   * 获得关注列表
+   * @param follower_id
+   */
+  public static String GET_FOLLOWS_BY_ID = BASE_PATH + "/getfollowsbyid";
+
+  /**
+   * 获得粉丝列表
+   * @param follows_id
+   */
+  public static String GET_FANS_BY_ID = BASE_PATH + "/getfansbyid";
+
+  /**
+   * 获得朋友的关注、粉丝和互相关注状态
+   * @param id
+   * @param friend_id
+   * @param page_type
+   */
+  public static String GET_FRIENDS_DETAIL = BASE_PATH + "/getfriendsdetail";
+
+  /**
+   * 添加个人歌单
+   * @param id
+   * @param list_name
+   */
+  public static String ADD_SONG_LIST = BASE_PATH + "/addsonglist";
+
+  /**
+   * 获得个人歌单
+   * @param id
+   */
+  public static String GET_P_SONG_LIST = BASE_PATH + "/getpsonglist";
 }

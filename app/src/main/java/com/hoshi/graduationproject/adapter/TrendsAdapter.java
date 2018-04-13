@@ -26,10 +26,19 @@ public class TrendsAdapter extends RecyclerView.Adapter<TrendsAdapter.TrendsHold
 
   @Override
   public TrendsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
     View view = inflater.inflate(R.layout.trends_item_layout, parent, false);
     TrendsHolder mTrendsHolder= new TrendsHolder(view);
     return mTrendsHolder;
+  }
+
+  public interface OnItemClickLitener {
+    void onItemClick(View view, int position);
+  }
+
+  private FollowsAdapter.OnItemClickLitener mOnItemClickLitener;
+
+  public void setOnItemClickLitener(FollowsAdapter.OnItemClickLitener mOnItemClickLitener) {
+    this.mOnItemClickLitener = mOnItemClickLitener;
   }
 
   @Override
@@ -42,6 +51,15 @@ public class TrendsAdapter extends RecyclerView.Adapter<TrendsAdapter.TrendsHold
     holder.trends_content.setText(mFriendsTrends.getTrends_content());
     holder.trends_comment.setText("" + mFriendsTrends.getTrends_comment());
     holder.trends_good   .setText("" + mFriendsTrends.getTrends_good());
+
+    if (mOnItemClickLitener != null) {
+      holder.itemView.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+          int pos = holder.getLayoutPosition();
+          mOnItemClickLitener.onItemClick(holder.itemView, pos);
+        }
+      });
+    }
   }
 
   @Override

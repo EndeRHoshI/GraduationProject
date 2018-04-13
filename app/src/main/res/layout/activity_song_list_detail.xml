@@ -1,34 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hoshi.graduationproject.activity.RankDetailActivity"
-    android:orientation="vertical">
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:visibility="gone"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-    </android.support.design.widget.AppBarLayout>
+    android:orientation="vertical"
+    tools:context="com.hoshi.graduationproject.activity.RankDetailActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:paddingTop="20dp"
-        android:background="@color/theme_color">
+        android:background="@color/theme_color"
+        android:paddingTop="20dp">
 
         <ImageView
             android:id="@+id/back_rank"
@@ -37,13 +20,13 @@
             android:layout_gravity="left"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:src="@drawable/ic_back"/>
+            android:src="@drawable/ic_back" />
 
         <TextView
             style="@style/top_text_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/rank"/>
+            android:text="@string/song_list" />
 
         <ImageView
             android:id="@+id/loading_button"
@@ -52,60 +35,48 @@
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:padding="8dp"
-            android:src="@drawable/top_loading1"/>
+            android:src="@drawable/top_loading1" />
     </FrameLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/theme_color">
+
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/simpleDraweeView_rank_avatar"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_margin="12dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_centerHorizontal="true"
-            fresco:pressedStateOverlayImage="@color/transparent_press"/>
+            android:layout_margin="12dp"
+            fresco:pressedStateOverlayImage="@color/transparent_press" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
             android:layout_below="@id/simpleDraweeView_rank_avatar"
+            android:layout_marginBottom="6dp"
             android:orientation="horizontal">
+
             <TextView
-                android:id="@+id/bookedCount"
+                android:id="@+id/collect_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:drawableTop="@drawable/ic_folder_white"
-                android:textColor="@color/white"/>
-            <TextView
-                android:id="@+id/commentCount"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
-                android:drawableTop="@drawable/ic_comment_white"
-                android:textColor="@color/white"/>
-            <TextView
-                android:id="@+id/shareCount"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:drawableTop="@drawable/ic_share_white"
-                android:textColor="@color/white"/>
+                android:text="@string/collect"
+                android:textColor="@color/white" />
+
             <TextView
                 android:id="@+id/downloadButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:drawableTop="@drawable/ic_download_white"
+                android:gravity="center"
                 android:text="@string/download"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -116,13 +87,13 @@
         android:gravity="center"
         android:text="@string/loading"
         android:textColor="@color/gray"
-        android:textSize="15sp"/>
+        android:textSize="15sp" />
+
     <ListView
         android:id="@+id/rank_songList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        android:visibility="gone">
-    </ListView>
+        android:visibility="gone"></ListView>
 
 </LinearLayout>

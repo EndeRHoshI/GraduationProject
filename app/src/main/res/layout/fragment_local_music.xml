@@ -1,19 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.hoshi.graduationproject.mymusic.LocalMusicFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.hoshi.graduationproject.fragment.LocalMusicFragment">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="39dp"
         android:layout_below="@+id/toolbar"
+        android:tag="tab_indicator_accent_color,bg_primary_color"
         app:tabIndicatorColor="@color/theme_color"
-        app:tabSelectedTextColor="@color/theme_color"
-        android:tag="tab_indicator_accent_color,bg_primary_color" />
+        app:tabSelectedTextColor="@color/theme_color" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -22,5 +22,4 @@
         android:layout_above="@+id/empty"
         android:layout_below="@+id/tabs"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
 </LinearLayout>

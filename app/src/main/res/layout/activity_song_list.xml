@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/theme_color">
+
+        <ImageView
+            android:id="@+id/song_list_back"
+            style="@style/top_image_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:padding="8dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/song_list_title"
+            style="@style/top_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:text="@string/song_list" />
+
+        <ImageView
+            android:id="@+id/add_or_search_song_list"
+            style="@style/top_image_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:padding="8dp"
+            android:src="@drawable/ic_plus_white" />
+    </FrameLayout>
+    <TextView
+        android:id="@+id/my_music_null_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/gray" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/song_list_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
