@@ -169,6 +169,15 @@ public class Preferences {
     saveString("nickname", value);
   }
 
+  // 存取应用主题皮肤
+  public static void saveTheme(int value) {
+    saveInt("theme", value);
+  }
+
+  public static int getTheme() {
+    return getInt("theme", R.style.default_color);
+  }
+
   public static void clear() {
     getPreferences().edit().clear().apply();
   }

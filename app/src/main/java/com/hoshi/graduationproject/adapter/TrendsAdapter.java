@@ -35,9 +35,9 @@ public class TrendsAdapter extends RecyclerView.Adapter<TrendsAdapter.TrendsHold
     void onItemClick(View view, int position);
   }
 
-  private FollowsAdapter.OnItemClickLitener mOnItemClickLitener;
+  private TrendsAdapter.OnItemClickLitener mOnItemClickLitener;
 
-  public void setOnItemClickLitener(FollowsAdapter.OnItemClickLitener mOnItemClickLitener) {
+  public void setOnItemClickLitener(TrendsAdapter.OnItemClickLitener mOnItemClickLitener) {
     this.mOnItemClickLitener = mOnItemClickLitener;
   }
 
@@ -50,7 +50,7 @@ public class TrendsAdapter extends RecyclerView.Adapter<TrendsAdapter.TrendsHold
     holder.trends_date   .setText(mFriendsTrends.getTrends_date());
     holder.trends_content.setText(mFriendsTrends.getTrends_content());
     holder.trends_comment.setText("" + mFriendsTrends.getTrends_comment());
-    holder.trends_good   .setText("" + mFriendsTrends.getTrends_good());
+    //holder.trends_good   .setText("" + mFriendsTrends.getTrends_good());
 
     if (mOnItemClickLitener != null) {
       holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +69,7 @@ public class TrendsAdapter extends RecyclerView.Adapter<TrendsAdapter.TrendsHold
 
   public class TrendsHolder extends RecyclerView.ViewHolder {
     public SimpleDraweeView trends_avatar;
-    public TextView trends_name, trends_type, trends_date, trends_content, trends_comment, trends_good;
+    public TextView trends_name, trends_type, trends_date, trends_content, trends_comment;
 
     //实现的方法
     public TrendsHolder(View itemView) {
@@ -80,7 +80,7 @@ public class TrendsAdapter extends RecyclerView.Adapter<TrendsAdapter.TrendsHold
       trends_date    = itemView.findViewById(R.id.trends_date   );
       trends_content = itemView.findViewById(R.id.trends_content);
       trends_comment = itemView.findViewById(R.id.trends_comment);
-      trends_good    = itemView.findViewById(R.id.trends_good   );
+      //trends_good    = itemView.findViewById(R.id.trends_good   );
     }
   }
 }

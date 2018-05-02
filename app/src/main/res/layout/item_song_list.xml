@@ -31,7 +31,7 @@
                 android:id="@+id/song_list_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/night_day_color"
                 android:textSize="15sp" />
 
             <TextView
@@ -45,10 +45,11 @@
         </LinearLayout>
     </RelativeLayout>
 
-
     <View
         android:layout_width="match_parent"
-        android:layout_height="2px"
-        android:background="@color/lite_gray" />
+        android:layout_height="1px"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@color/gray" />
 
 </LinearLayout>

@@ -42,9 +42,18 @@ public class SongList {
     this.list_length = list_length;
   }
 
+  public String getList_author_name() {
+    return list_author_name;
+  }
+
+  public void setList_author_name(String list_author_name) {
+    this.list_author_name = list_author_name;
+  }
+
   public int list_id;
   public String list_avatar;
   public String list_name;
   public int list_author_id;
+  public String list_author_name;
   public int list_length;
 }

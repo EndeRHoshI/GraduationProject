@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".activity.PresonalActivity">
 
@@ -11,7 +11,7 @@
         android:id="@+id/top_framelayout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/theme_color">
+        android:background="?theme_color">
 
         <ImageView
             android:id="@+id/presonal_detail_back"
@@ -44,15 +44,15 @@
             android:layout_weight="1"
             android:paddingLeft="10dp"
             android:text="@string/presonal_avatar"
-            android:textColor="@color/black" />
+            android:textColor="@color/night_day_color" />
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/presonal_detail_avatar"
-            android:layout_gravity="center_vertical"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
             fresco:placeholderImage="@drawable/ic_default_user"
-            fresco:roundAsCircle="true"/>
+            fresco:roundAsCircle="true" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -66,7 +66,9 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2px"
-        android:background="@color/lite_gray"/>
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@color/gray" />
 
     <LinearLayout
         android:id="@+id/presonal_nickname_layout"
@@ -79,10 +81,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
-            android:paddingLeft="10dp"
             android:layout_weight="1"
+            android:paddingLeft="10dp"
             android:text="@string/presonal_nickname"
-            android:textColor="@color/black"/>
+            android:textColor="@color/night_day_color" />
 
         <TextView
             android:id="@+id/presonal_nickname"
@@ -90,8 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
             android:paddingLeft="10dp"
-            android:text="EndeRHoshI"
-            android:textColor="@color/gray"/>
+            android:textColor="@color/gray" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -99,13 +100,15 @@
             android:layout_gravity="center"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
-            android:src="@drawable/ic_expand_arrow"/>
+            android:src="@drawable/ic_expand_arrow" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2px"
-        android:background="@color/lite_gray"/>
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@color/gray" />
 
     <LinearLayout
         android:id="@+id/presonal_sex_layout"
@@ -118,10 +121,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
-            android:paddingLeft="10dp"
             android:layout_weight="1"
+            android:paddingLeft="10dp"
             android:text="@string/presonal_sex"
-            android:textColor="@color/black"/>
+            android:textColor="@color/night_day_color" />
 
         <TextView
             android:id="@+id/presonal_sex"
@@ -129,8 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
             android:paddingLeft="10dp"
-            android:text="男"
-            android:textColor="@color/gray"/>
+            android:textColor="@color/gray" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -138,13 +140,15 @@
             android:layout_gravity="center"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
-            android:src="@drawable/ic_expand_arrow"/>
+            android:src="@drawable/ic_expand_arrow" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2px"
-        android:background="@color/lite_gray"/>
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@color/gray" />
 
     <LinearLayout
         android:id="@+id/presonal_birthday_layout"
@@ -157,10 +161,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
-            android:paddingLeft="10dp"
             android:layout_weight="1"
+            android:paddingLeft="10dp"
             android:text="@string/presonal_birthday"
-            android:textColor="@color/black"/>
+            android:textColor="@color/night_day_color" />
 
         <TextView
             android:id="@+id/presonal_birthday"
@@ -168,8 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
             android:paddingLeft="10dp"
-            android:text="1995-12-15"
-            android:textColor="@color/gray"/>
+            android:textColor="@color/gray" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -177,13 +180,13 @@
             android:layout_gravity="center"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
-            android:src="@drawable/ic_expand_arrow"/>
+            android:src="@drawable/ic_expand_arrow" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@color/lite_gray"/>
+        android:background="@color/presonal_detail_background_color" />
 
     <LinearLayout
         android:id="@+id/presonal_profile_layout"
@@ -201,30 +204,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|center_vertical"
-                android:paddingLeft="10dp"
                 android:layout_weight="1"
+                android:paddingLeft="10dp"
                 android:text="@string/presonal_profile"
-                android:textColor="@color/black"/>
+                android:textColor="@color/night_day_color" />
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
-            android:background="@color/lite_gray"/>
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray" />
 
         <TextView
             android:id="@+id/presonal_profile"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:padding="12dp"
-            android:text="今天天气很好"/>
+            android:padding="12dp" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/lite_gray"/>
+        android:background="@color/presonal_detail_background_color" />
 
 </LinearLayout>

@@ -4,13 +4,12 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:orientation="vertical"
-             android:background="@color/lite_gray"
              tools:context="com.hoshi.graduationproject.fragment.PersonalFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/theme_color">
+        android:background="?theme_color">
 
         <TextView
             android:id="@+id/textView"
@@ -32,14 +31,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/avatar_nickname_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/list_item_selector"
+            android:background="?android:selectableItemBackground"
             android:clickable="true">
 
             <com.facebook.drawee.view.SimpleDraweeView
@@ -56,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="left|center_vertical"
-                android:textColor="@color/black"/>
+                android:textColor="@color/night_day_color"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -69,13 +67,14 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/lite_gray"/>
+            android:layout_height="1px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -84,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/list_item_selector"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:orientation="vertical">
 
@@ -92,22 +91,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/trends"/>
+                    android:text="@string/trends"
+                    android:textColor="@color/night_day_color"/>
 
                 <TextView
                     android:id="@+id/trends_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/empty_number"/>
+                    android:text="@string/empty_number"
+                    android:textColor="@color/night_day_color"/>
             </LinearLayout>
 
             <View
-                android:layout_width="2px"
+                android:layout_width="1px"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="12dp"
                 android:layout_marginTop="12dp"
-                android:background="@color/lite_gray"/>
+                android:background="@color/gray"/>
 
             <LinearLayout
                 android:id="@+id/follows_layout"
@@ -115,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/list_item_selector"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:orientation="vertical">
 
@@ -123,22 +124,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/follows"/>
+                    android:text="@string/follows"
+                    android:textColor="@color/night_day_color"/>
 
                 <TextView
                     android:id="@+id/follows_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/empty_number"/>
+                    android:text="@string/empty_number"
+                    android:textColor="@color/night_day_color"/>
             </LinearLayout>
 
             <View
-                android:layout_width="2px"
+                android:layout_width="1px"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="12dp"
                 android:layout_marginTop="12dp"
-                android:background="@color/lite_gray"/>
+                android:background="@color/gray"/>
 
             <LinearLayout
                 android:id="@+id/fans_layout"
@@ -146,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/list_item_selector"
+                android:background="?android:selectableItemBackground"
                 android:clickable="true"
                 android:orientation="vertical">
 
@@ -154,14 +157,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/fans"/>
+                    android:text="@string/fans"
+                    android:textColor="@color/night_day_color"/>
 
                 <TextView
                     android:id="@+id/fans_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/empty_number"/>
+                    android:text="@string/empty_number"
+                    android:textColor="@color/night_day_color"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -169,15 +174,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:orientation="vertical">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray"/>
         <LinearLayout
             android:id="@+id/music_clock_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/list_item_selector"
+            android:background="?android:selectableItemBackground"
             android:clickable="true">
 
             <ImageView
@@ -196,7 +205,7 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
                 android:text="@string/music_clock"
-                android:textColor="@color/black"/>
+                android:textColor="@color/night_day_color"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -209,14 +218,16 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/lite_gray"/>
+            android:layout_height="1px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray"/>
 
         <LinearLayout
             android:id="@+id/change_skin_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/list_item_selector"
+            android:background="?android:selectableItemBackground"
             android:clickable="true">
 
             <ImageView
@@ -235,7 +246,7 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
                 android:text="@string/change_skin"
-                android:textColor="@color/black"/>
+                android:textColor="@color/night_day_color"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -248,8 +259,10 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/lite_gray"/>
+            android:layout_height="1px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray"/>
 
         <LinearLayout
             android:id="@+id/night_mode_layout"
@@ -273,27 +286,29 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
                 android:text="@string/night_mode"
-                android:textColor="@color/black"/>
+                android:textColor="@color/night_day_color"/>
 
             <ImageView
+                android:id="@+id/night_mode_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingLeft="18dp"
-                android:paddingRight="18dp"
-                android:src="@drawable/ic_switch_close"/>
+                android:paddingRight="18dp"/>
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/lite_gray"/>
+            android:layout_height="1px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray"/>
 
         <LinearLayout
             android:id="@+id/feedback_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/list_item_selector"
+            android:background="?android:selectableItemBackground"
             android:clickable="true">
 
             <ImageView
@@ -312,7 +327,7 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
                 android:text="@string/feedback"
-                android:textColor="@color/black"/>
+                android:textColor="@color/night_day_color"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -324,16 +339,23 @@
         </LinearLayout>
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@color/gray"/>
+
     <TextView
         android:id="@+id/logout_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/list_item_selector"
+        android:background="?android:selectableItemBackground"
         android:clickable="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:gravity="center"
         android:text="@string/logout"
-        android:textColor="@color/theme_color"/>
+        android:textColor="@color/logout_button_color"/>
 </LinearLayout>

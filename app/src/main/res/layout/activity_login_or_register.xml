@@ -11,7 +11,7 @@
         android:id="@+id/top_framelayout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/theme_color">
+        android:background="?theme_color">
 
         <ImageView
             android:id="@+id/login_or_register_back"
@@ -92,7 +92,7 @@
             android:layout_below="@id/forget_password"
             android:layout_alignLeft="@id/forget_password"
             android:layout_alignRight="@id/forget_password"
-            android:background="@color/theme_color"/>
+            android:background="?theme_color"/>
     </RelativeLayout>
 
 </RelativeLayout>

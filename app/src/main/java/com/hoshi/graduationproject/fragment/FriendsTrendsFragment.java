@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.hoshi.graduationproject.R;
 import com.hoshi.graduationproject.activity.FriendsTrendsActivity;
-import com.hoshi.graduationproject.adapter.FollowsAdapter;
 import com.hoshi.graduationproject.adapter.TrendsAdapter;
 import com.hoshi.graduationproject.model.FriendsTrends;
 import com.hoshi.graduationproject.utils.OkhttpUtil;
@@ -59,7 +58,7 @@ public class FriendsTrendsFragment extends Fragment {
               mRecyclerView.setVisibility(View.VISIBLE);
               tv_no_trends.setVisibility(View.GONE);
               TrendsAdapter mTrendsAdapter = new TrendsAdapter(mDatas, getContext());
-              mTrendsAdapter.setOnItemClickLitener(new FollowsAdapter.OnItemClickLitener() {
+              mTrendsAdapter.setOnItemClickLitener(new TrendsAdapter.OnItemClickLitener() {
                 @Override
                 public void onItemClick(View view, int position) {
                   FriendsTrends tempFriendsTrends = mDatas.get(position);
@@ -95,15 +94,14 @@ public class FriendsTrendsFragment extends Fragment {
 
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
 
     tv_no_trends = getActivity().findViewById(R.id.textview_friend_no_trends);
-    mRecyclerView = getActivity().findViewById(R.id.song_list_recyclerView);
+    mRecyclerView = getActivity().findViewById(R.id.friend_detail_trends_recyclerView);
 
     LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());//设置布局管理器
     mRecyclerView.setLayoutManager(layoutManager);//设置为垂直布局，这也是默认的
     layoutManager.setOrientation(OrientationHelper. VERTICAL);//设置Adapter
-
-    super.onActivityCreated(savedInstanceState);
   }
 
   @Override
@@ -123,7 +121,7 @@ public class FriendsTrendsFragment extends Fragment {
         for (int i = 0; i < dataSuccessJson.length(); i++) {
           JSONObject tempTrends = dataSuccessJson.getJSONObject(i);
           FriendsTrends tempFriendsTrends = new FriendsTrends();
-          tempFriendsTrends.setTrends_avatar("http://cdn.aixifan.com/acfun-pc/2.0.97/img/niudan/niudango.png");
+          tempFriendsTrends.setTrends_avatar(tempTrends.getString("avatar"));
           tempFriendsTrends.setTrends_name(tempTrends.getString("author_name"));
           tempFriendsTrends.setTrends_type("分享动态");
           tempFriendsTrends.setTrends_date(tempTrends.getString("date"));

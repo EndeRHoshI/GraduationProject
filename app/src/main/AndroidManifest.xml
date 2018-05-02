@@ -4,12 +4,10 @@
 
     <!-- 权限列表如下 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
@@ -39,7 +37,9 @@
             android:theme="@style/ImageTranslucentTheme" />
         <activity android:name=".activity.RankDetailActivity" />
         <activity android:name=".activity.LocalMusicActivity" />
-        <activity android:name=".activity.PlayActivity" />
+        <activity
+            android:name=".activity.PlayActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".activity.PlaylistActivity" />
         <activity
             android:name=".activity.MusicInfoActivity"
@@ -55,8 +55,19 @@
         <activity android:name=".activity.PresonalActivity" />
         <activity android:name=".activity.FriendsActivity" />
         <activity android:name=".activity.FriendsDetailActivity" />
-        <activity android:name=".activity.FriendsTrendsActivity" />
-        <activity android:name=".activity.SongListActivity"></activity>
+        <activity
+            android:name=".activity.FriendsTrendsActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activity.SongListActivity" />
+        <activity android:name=".activity.SongListDetailActivity" />
+        <activity android:name=".activity.SongListEditActivity" />
+        <activity android:name=".activity.AlarmClockActivity" />
+        <activity android:name=".activity.FeedBackActivity"></activity>
+        <receiver android:name=".receiver.RemoteControlReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

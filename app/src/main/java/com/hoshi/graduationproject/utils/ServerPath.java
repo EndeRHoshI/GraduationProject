@@ -69,6 +69,12 @@ public class ServerPath {
   public static String CHANGE_NICKNAME = BASE_PATH + "/changenickname";
 
   /**
+   * 修改头像
+   * @param id
+   */
+  public static String CHANGE_AVATAR = BASE_PATH + "/changeavatar";
+
+  /**
    * 修改性别
    * @param id
    */
@@ -139,8 +145,80 @@ public class ServerPath {
   public static String ADD_SONG_LIST = BASE_PATH + "/addsonglist";
 
   /**
+   * 查找歌单
+   * @param key
+   */
+  public static String SEARCH_SONG_LIST = BASE_PATH + "/searchsonglist";
+
+  /**
+   * 添加收藏歌单
+   * @param list_id
+   * @param follower_id
+   */
+  public static String ADD_LIST_FOLLOWS = BASE_PATH + "/addlistfollows";
+
+  /**
+   * 获取收藏歌单列表
+   * @param list_id
+   * @param follower_id
+   */
+  public static String GET_LIST_FOLLOWS_BY_ID = BASE_PATH + "/getlistfollowsbyid";
+
+  /**
+   * 修改个人歌单名称
+   * @param id
+   * @param list_name
+   */
+  public static String CHANGE_SONG_LIST_NAME = BASE_PATH + "/changesonglistname";
+
+  /**
+   * 修改个人歌单封面
+   * @param list_id
+   * @param list_avatar
+   */
+  public static String CHANGE_SONG_LIST_AVATAR = BASE_PATH + "/changesonglistavatar";
+
+  /**
    * 获得个人歌单
    * @param id
    */
   public static String GET_P_SONG_LIST = BASE_PATH + "/getpsonglist";
+
+  /**
+   * 添加歌曲到歌单
+   * @param song_id
+   * @param song_title
+   * @param song_artist_name
+   * @param song_alias
+   * @param song_cover
+   * @param song_duration
+   * @param list_id
+   */
+  public static String ADD_SONG_TO_SONG_LIST = BASE_PATH + "/addsongtosonglist";
+
+  /**
+   * 获得歌单内的歌曲
+   * @param list_id
+   */
+  public static String GET_LIST_SONG = BASE_PATH + "/getlistsong";
+
+  /**
+   * 删除歌单内的歌曲
+   * @param list_id
+   */
+  public static String DEL_LIST_SONG = BASE_PATH + "/dellistsong";
+
+  /**
+   * 发表评论
+   * @param trends_id
+   * @param comment_id
+   * @param content
+   */
+  public static String ADD_COMMENTS = BASE_PATH + "/addcomments";
+
+  /**
+   * 获得评论
+   * @param trends_id
+   */
+  public static String GET_COMMENTS_BY_ID = BASE_PATH + "/getcommentsbyid";
 }

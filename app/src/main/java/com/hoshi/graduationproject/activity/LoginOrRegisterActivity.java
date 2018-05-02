@@ -30,6 +30,7 @@ public class LoginOrRegisterActivity extends AppCompatActivity implements View.O
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setTheme(Preferences.getTheme());
     setContentView(R.layout.activity_login_or_register);
 
     if (mContext == null) {

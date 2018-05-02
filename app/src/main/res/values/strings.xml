@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MusicPlayer</string>
+    <string name="app_name">HoshiPlayer</string>
 
     <!--tab-->
     <string name="discover">发现音乐</string>
@@ -16,6 +16,9 @@
     <string name="night_mode">夜间模式</string>
     <string name="feedback">反馈</string>
     <string name="music_clock">音乐闹钟</string>
+    <string name="ring">铃声</string>
+    <string name="repeat">重复</string>
+    <string name="never">永不</string>
     <string name="change_profile">修改个人简介</string>
     <string name="double_arrow">⇆⇋</string>
 
@@ -44,17 +47,26 @@
     <string name="confirm_password">确认密码</string>
     <string name="empty_number">--</string>
     <string name="null_content">请输入内容</string>
+    <string name="feed_back_hint">欢迎提供对本应用的意见和建议</string>
+    <string name="send_success">发送成功</string>
 
     <!--my music-->
     <string name="local_music">本地音乐</string>
     <string name="recent_played">最近播放</string>
     <string name="my_collection">歌单收藏</string>
     <string name="personal_song_list">个人歌单</string>
+    <string name="personal_collection_song_list">个人歌单及收藏</string>
     <string name="song_list">歌单</string>
     <string name="song_list_name">歌单名称</string>
+    <string name="new_song_list">新建歌单</string>
+    <string name="edit_song_list">编辑歌单</string>
+    <string name="song_list_cover">歌单封面</string>
     <string name="no_song_list">还没有任何歌单</string>
+    <string name="no_song_song_list">还没有添加任何歌曲</string>
     <string name="collect">收藏</string>
+    <string name="add_collect">+ 收藏</string>
     <string name="already_collect">已收藏</string>
+    <string name="song_list_song_num">%1$d首</string>
     <string name="my_music_no_login_hint">登录后可查看歌单收藏和个人歌单</string>
 
     <!--dicover-->
@@ -69,10 +81,12 @@
     <!--friends-->
     <string name="no_trends">暂时还没有内容，立刻发表你的动态吧</string>
     <string name="no_trends_friends">暂时还没有发表任何内容</string>
+    <string name="no_trends_list">暂时还没有创建或收藏歌单</string>
     <string name="no_follows">你没有关注任何人</string>
     <string name="no_fans">你暂时还没有粉丝</string>
     <string name="no_login_trends">请登录后再查看好友动态</string>
     <string name="no_profile">这个用户很懒，什么也没有写</string>
+    <string name="cannot_remove_collection">你不能移除收藏歌单的歌曲</string>
     <string name="share_trends">分享动态</string>
     <string name="comment">评论</string>
     <string name="comment_num">评论(%1$d)</string>

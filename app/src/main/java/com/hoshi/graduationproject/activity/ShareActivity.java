@@ -26,6 +26,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setTheme(Preferences.getTheme());
     setContentView(R.layout.activity_share);
 
     et_trends = findViewById(R.id.trends_editText);

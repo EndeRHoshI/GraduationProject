@@ -11,8 +11,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/theme_color">
+        android:layout_height="40dp"
+        android:background="?theme_color">
 
         <ImageView
             android:id="@+id/back_friends_detail"
@@ -36,7 +36,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/theme_color">
+        android:background="?theme_color">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/simpleDraweeView_friend_detail_avatar"

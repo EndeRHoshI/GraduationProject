@@ -43,6 +43,7 @@ public class FriendsDetailActivity extends AppCompatActivity implements View.OnC
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setTheme(Preferences.getTheme());
     setContentView(R.layout.activity_friends_detail);
 
     friend_id = getIntent().getIntExtra("id", 0);

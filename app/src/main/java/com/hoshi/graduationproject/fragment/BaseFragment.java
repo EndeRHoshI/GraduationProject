@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import com.hoshi.graduationproject.activity.PlayActivity;
+import com.hoshi.graduationproject.storage.preference.Preferences;
 import com.hoshi.graduationproject.utils.PermissionReq;
 import com.hoshi.graduationproject.utils.binding.ViewBinder;
 import com.hwangjr.rxbus.RxBus;
@@ -19,6 +20,12 @@ import com.hwangjr.rxbus.RxBus;
  */
 public abstract class BaseFragment extends Fragment{
   protected Handler handler;
+
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    getActivity().setTheme(Preferences.getTheme());
+  }
 
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {

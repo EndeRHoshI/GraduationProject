@@ -57,6 +57,14 @@ public class FriendsTrends {
     this.trends_good = trends_good;
   }
 
+  public int getTrends_id() {
+    return trends_id;
+  }
+
+  public void setTrends_id(int trends_id) {
+    this.trends_id = trends_id;
+  }
+
   public String trends_avatar;
   public String trends_name;
   public String trends_type;
@@ -64,4 +72,5 @@ public class FriendsTrends {
   public String trends_content;
   public int trends_comment;
   public int trends_good;
+  public int trends_id;
 }

@@ -59,11 +59,6 @@ public class SearchMusicActivity extends BaseActivity implements SearchView.OnQu
     }
 
     @Override
-    protected int getDarkTheme() {
-        return R.style.AppThemeDark_Search;
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search_music, menu);
         SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();

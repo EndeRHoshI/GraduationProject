@@ -2,11 +2,15 @@ package com.hoshi.graduationproject.activity;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
@@ -16,10 +20,14 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hoshi.graduationproject.R;
 import com.hoshi.graduationproject.storage.preference.Preferences;
+import com.hoshi.graduationproject.uploadimg.Auth;
 import com.hoshi.graduationproject.utils.ClickManager;
 import com.hoshi.graduationproject.utils.OkhttpUtil;
 import com.hoshi.graduationproject.utils.ServerPath;
 import com.hoshi.graduationproject.utils.ToastUtils;
+import com.qiniu.android.http.ResponseInfo;
+import com.qiniu.android.storage.UpCompletionHandler;
+import com.qiniu.android.storage.UploadManager;
 
 import org.json.JSONObject;
 
@@ -45,10 +53,12 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
   private String[] sexArray = new String[]{"保密", "男", "女"};// 性别选择
 
   private final int UPDATE = 1;
+  private final int GALLERY_ACTIVITY_CODE = 2;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setTheme(Preferences.getTheme());
     setContentView(R.layout.activity_presonal);
 
     handler = new Handler() {
@@ -124,7 +134,7 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
     // 使用setView()方法将布局显示到dialog
     alertDialogBuilder.setView(nameView);
 
-    final EditText userInput = (EditText) nameView.findViewById(R.id.change_profile_edit);
+    final EditText userInput = (EditText) nameView.findViewById(R.id.change_nickname_edit);
 
     userInput.setHint(R.string.new_nicknam);
 
@@ -164,7 +174,7 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
     // 使用setView()方法将布局显示到dialog
     alertDialogBuilder.setView(nameView);
 
-    final EditText userInput = nameView.findViewById(R.id.change_profile_edit);
+    final EditText userInput = nameView.findViewById(R.id.change_nickname_edit);
 
     userInput.setText(Preferences.getProfile());
     userInput.setSelection(Preferences.getProfile().length());
@@ -216,9 +226,11 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
       @Override
       public void requestSuccess(String result) throws Exception {
         JSONObject dataSuccessJson = new JSONObject(result);
-        String info = dataSuccessJson.getString("info");
-        Preferences.saveNickname(nickname);
-        ToastUtils.show(info);
+        if (dataSuccessJson.getBoolean("error")) {
+          Preferences.saveNickname(nickname);
+        } else {
+          ToastUtils.show(dataSuccessJson.getString("info"));
+        }
 
         Message message = new Message();
         message.what = UPDATE;
@@ -239,9 +251,11 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
       @Override
       public void requestSuccess(String result) throws Exception {
         JSONObject dataSuccessJson = new JSONObject(result);
-        String info = dataSuccessJson.getString("info");
-        ToastUtils.show(birthday);
-        Preferences.saveBirthday(birthday);
+        if (dataSuccessJson.getBoolean("error")) {
+          Preferences.saveBirthday(birthday);
+        } else {
+          ToastUtils.show(dataSuccessJson.getString("info"));
+        }
 
         Message message = new Message();
         message.what = UPDATE;
@@ -262,9 +276,11 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
       @Override
       public void requestSuccess(String result) throws Exception {
         JSONObject dataSuccessJson = new JSONObject(result);
-        String info = dataSuccessJson.getString("info");
-        ToastUtils.show(info);
-        Preferences.saveProfile(profile);
+        if (dataSuccessJson.getBoolean("error")) {
+          Preferences.saveProfile(profile);
+        } else {
+          ToastUtils.show(dataSuccessJson.getString("info"));
+        }
 
         Message message = new Message();
         message.what = UPDATE;
@@ -298,9 +314,54 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
       @Override
       public void requestSuccess(String result) throws Exception {
         JSONObject dataSuccessJson = new JSONObject(result);
-        String info = dataSuccessJson.getString("info");
-        Preferences.saveSex(sex);
-        ToastUtils.show(info);
+        if (dataSuccessJson.getBoolean("error")) {
+          Preferences.saveSex(sex);
+        } else {
+          ToastUtils.show(dataSuccessJson.getString("info"));
+        }
+
+        Message message = new Message();
+        message.what = UPDATE;
+        handler.sendMessage(message);
+      }
+      @Override
+      public void requestFailure(Request request, IOException e) {
+        ToastUtils.show(R.string.request_fail);
+      }
+    });
+  }
+
+  private void uploadImg2QiNiu(String picPath) {
+    UploadManager uploadManager = new UploadManager();
+    // 设置图片名字
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+    String key = "user"  + Preferences.getId() + "_" + sdf.format(new Date());
+    Log.i("", "picPath: " + picPath);
+    uploadManager.put(picPath, key, Auth.create(Auth.AccessKey, Auth.SecretKey).uploadToken("hoshimusic"), new UpCompletionHandler() {
+      @Override
+      public void complete(String key, ResponseInfo info, JSONObject res) {
+        // info.error中包含了错误信息，可打印调试
+        // 上传成功后将key值上传到自己的服务器
+        if (info.isOK()) {
+          sendChangeAvatarRequest("http://p7eu09pkq.bkt.clouddn.com/" + key);
+        }
+      }
+    }, null);
+  }
+
+  private void sendChangeAvatarRequest(String path) {
+    HashMap<String, String> params = new HashMap<>();
+    params.put("id", "" + Preferences.getId());
+    params.put("avatar", path);
+    OkhttpUtil.postFormRequest(ServerPath.CHANGE_AVATAR, params, new OkhttpUtil.DataCallBack(){
+      @Override
+      public void requestSuccess(String result) throws Exception {
+        JSONObject dataSuccessJson = new JSONObject(result);
+        if (dataSuccessJson.getBoolean("error")) {
+          Preferences.saveAvatar(path);
+        } else {
+          ToastUtils.show(dataSuccessJson.getString("info"));
+        }
 
         Message message = new Message();
         message.what = UPDATE;
@@ -314,12 +375,35 @@ public class PresonalActivity extends AppCompatActivity implements View.OnClickL
   }
 
   @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (resultCode == RESULT_OK) {
+      switch (requestCode) {
+        case GALLERY_ACTIVITY_CODE:
+          String[] proj = {MediaStore.Images.Media.DATA};
+          //好像是android多媒体数据库的封装接口，具体的看Android文档
+          Cursor cursor = managedQuery(data.getData(), proj, null, null, null);
+          //按我个人理解 这个是获得用户选择的图片的索引值
+          int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+          //将光标移至开头 ，这个很重要，不小心很容易引起越界
+          cursor.moveToFirst();
+          //最后根据索引值获取图片路径
+          String path = cursor.getString(column_index);
+          //ToastUtils.show(path);
+          uploadImg2QiNiu(path);
+          break;
+      }
+    }
+  }
+
+  @Override
   public void onClick(View v) {
     switch (v.getId()) {
       case R.id.presonal_detail_back:
         finish();
         break;
       case R.id.presonal_avatar_layout:
+        startActivityForResult(new Intent(Intent.ACTION_PICK, null).setType("image/*"), GALLERY_ACTIVITY_CODE);
         break;
       case R.id.presonal_nickname_layout:
         showChangeNicknameDialog();

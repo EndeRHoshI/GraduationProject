@@ -12,8 +12,8 @@
         android:layout_height="39dp"
         android:layout_below="@+id/toolbar"
         android:tag="tab_indicator_accent_color,bg_primary_color"
-        app:tabIndicatorColor="@color/theme_color"
-        app:tabSelectedTextColor="@color/theme_color" />
+        app:tabIndicatorColor="?theme_color"
+        app:tabSelectedTextColor="?theme_color" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

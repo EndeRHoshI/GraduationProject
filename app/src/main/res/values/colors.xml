@@ -5,7 +5,12 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="theme_color">#C3473A</color>
+    <color name="tab_color">@android:color/white</color>
+    <color name="night_day_color">@android:color/black</color>
+    <color name="trends_text_background_color">@color/lite_gray</color>
+    <color name="presonal_detail_background_color">@color/lite_gray</color>
 
+    <color name="logout_button_color">#C3473A</color>
     <color name="gray">#777777</color>
     <color name="lite_gray">#EEEFF0</color>
     <color name="item_press">#e4e5e6</color>
@@ -15,6 +20,12 @@
     <color name="transparent_press">#50000000</color>
     <color name="text_color">#FF000000</color>
     <color name="edittext_hint_color">#96ffffff</color>
+    <color name="my_music_red">#C3473A</color>
+    <color name="my_music_orange">#bc7a2a</color>
+    <color name="my_music_blue">#11227e</color>
+    <color name="my_music_lite_blue">#787cf5</color>
+    <color name="my_music_green">#17ae49</color>
+    <color name="my_music_pink">#C34888</color>
 
     <color name="white">@android:color/white</color>
     <color name="white_8p">#14FFFFFF</color>

@@ -12,9 +12,9 @@
         <!--不作如下设置则会导致内容与状态栏重叠-->
         <!--<item name="android:fitsSystemWindows">true</item>-->
 
-        <item name="colorPrimary">@color/theme_color</item>
-        <item name="colorPrimaryDark">@color/theme_color</item>
-        <item name="colorAccent">@color/theme_color</item>
+        <item name="colorPrimary">?theme_color</item>
+        <item name="colorPrimaryDark">?theme_color</item>
+        <item name="colorAccent">?theme_color</item>
     </style>
 
     <style name="ImageTranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">

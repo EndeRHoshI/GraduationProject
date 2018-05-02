@@ -35,9 +35,9 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongLi
     void onItemClick(View view, int position);
   }
 
-  private FollowsAdapter.OnItemClickLitener mOnItemClickLitener;
+  private SongListAdapter.OnItemClickLitener mOnItemClickLitener;
 
-  public void setOnItemClickLitener(FollowsAdapter.OnItemClickLitener mOnItemClickLitener) {
+  public void setOnItemClickLitener(SongListAdapter.OnItemClickLitener mOnItemClickLitener) {
     this.mOnItemClickLitener = mOnItemClickLitener;
   }
 
@@ -48,7 +48,11 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongLi
       holder.list_avatar.setImageURI(mSongList.getList_avatar());
     }
     holder.list_name  .setText(mSongList.getList_name());
-    holder.list_length.setText("" + mSongList.getList_length());
+
+    String sFormat = mContext.getString(R.string.song_list_song_num);
+    String sFinal = String.format(sFormat, mSongList.getList_length());
+
+    holder.list_length.setText(sFinal);
 
     if (mOnItemClickLitener != null) {
       holder.itemView.setOnClickListener(new View.OnClickListener() {

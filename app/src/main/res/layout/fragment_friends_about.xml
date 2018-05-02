@@ -15,7 +15,7 @@
         <View
             android:layout_width="2dp"
             android:layout_height="14dp"
-            android:background="@color/theme_color" />
+            android:background="?theme_color" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
         <View
             android:layout_width="2dp"
             android:layout_height="14dp"
-            android:background="@color/theme_color" />
+            android:background="?theme_color" />
 
         <TextView
             android:layout_width="wrap_content"

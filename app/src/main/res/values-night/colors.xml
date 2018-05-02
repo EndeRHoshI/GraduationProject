@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="tab_color">#202020</color>
+    <color name="night_day_color">@android:color/white</color>
+    <color name="trends_text_background_color">@color/gray</color>
+    <color name="presonal_detail_background_color">#202020</color>
+
+    <color name="logout_button_color">#C3473A</color>
+    <color name="gray">#777777</color>
+    <color name="lite_gray">#EEEFF0</color>
+    <color name="item_press">#e4e5e6</color>
+    <color name="tab_bottem_press_gray">#C6C4C4</color>
+    <color name="text_lite_gray">#69696A</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="transparent_press">#50000000</color>
+    <color name="text_color">#FF000000</color>
+    <color name="edittext_hint_color">#96ffffff</color>
+    <color name="my_music_red">#C3473A</color>
+    <color name="my_music_orange">#bc7a2a</color>
+    <color name="my_music_blue">#11227e</color>
+    <color name="my_music_lite_blue">#787cf5</color>
+    <color name="my_music_green">#17ae49</color>
+    <color name="my_music_pink">#C34888</color>
+
+    <color name="white">@android:color/white</color>
+    <color name="white_8p">#14FFFFFF</color>
+    <color name="white_16p">#29FFFFFF</color>
+    <color name="white_24p">#3DFFFFFF</color>
+    <color name="white_50p">#80FFFFFF</color>
+    <color name="white_96p">#F5FFFFFF</color>
+    <color name="black">@android:color/black</color>
+    <color name="black_50p">#80000000</color>
+    <color name="red">#F44336</color>
+    <color name="red_30p">#4CF44336</color>
+    <color name="blue">#2196F3</color>
+    <color name="grey">#9E9E9E</color>
+    <color name="grey_50p">#809E9E9E</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_700_96p">#F5616161</color>
+    <color name="grey_300_96p">#F5E0E0E0</color>
+    <color name="grey_900">#212121</color>
+    <color name="grey_900_96p">#F5212121</color>
+</resources>

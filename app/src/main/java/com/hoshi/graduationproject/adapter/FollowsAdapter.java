@@ -28,8 +28,8 @@ public class FollowsAdapter extends RecyclerView.Adapter<FollowsAdapter.FriendsD
   @Override
   public FriendsDetailsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View view = inflater.inflate(R.layout.follows_item_layout, parent, false);
-    FriendsDetailsHolder mTrendsHolder = new FriendsDetailsHolder(view);
-    return mTrendsHolder;
+    FriendsDetailsHolder mFriendsDetailsHolder = new FriendsDetailsHolder(view);
+    return mFriendsDetailsHolder;
   }
 
   public interface OnItemClickLitener {

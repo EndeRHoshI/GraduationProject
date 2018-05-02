@@ -10,6 +10,7 @@ import com.hoshi.graduationproject.fragment.DiscoverFragment;
 import com.hoshi.graduationproject.fragment.FriendsFragment;
 import com.hoshi.graduationproject.fragment.MyMusicFragment;
 import com.hoshi.graduationproject.fragment.PersonalFragment;
+import com.hoshi.graduationproject.storage.preference.Preferences;
 import com.hoshi.graduationproject.utils.PermissionHelper;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setTheme(Preferences.getTheme());
     setContentView(R.layout.activity_main);
 
     mPermissionHelper = new PermissionHelper(this);
@@ -43,13 +45,14 @@ public class MainActivity extends AppCompatActivity {
       }
     }
 
-    FragmentTabHost tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+    FragmentTabHost tabHost = findViewById(android.R.id.tabhost);
     tabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
     addTab(tabHost, DISCOVER, DiscoverFragment.class, getIndicatorView(R.layout.tab_discover));
     addTab(tabHost, MYMUSIC , MyMusicFragment .class, getIndicatorView(R.layout.tab_mymusic));
     addTab(tabHost, FRIENDS , FriendsFragment .class, getIndicatorView(R.layout.tab_friends));
     addTab(tabHost, PERSONAL, PersonalFragment.class, getIndicatorView(R.layout.tab_personal));
+    tabHost.setCurrentTab(getIntent().getIntExtra("tab_index", 0));
   }
 
   private static void addTab(FragmentTabHost tabHost, String title, Class<?> fragmentClazz, View indicator) {

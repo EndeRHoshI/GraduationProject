@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/theme_color">
+        android:background="?theme_color">
 
         <ImageView
             android:id="@+id/back_trends_detail"
@@ -17,7 +17,7 @@
             android:layout_gravity="left"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:src="@drawable/ic_back"/>
+            android:src="@drawable/ic_back" />
 
         <ImageView
             android:id="@+id/loading_button_trends_detail"
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="right"
-            android:src="@drawable/top_loading1"/>
+            android:src="@drawable/top_loading1" />
 
         <TextView
             style="@style/top_text_style"
@@ -46,9 +46,10 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
+            android:src="@drawable/default_artist"
             fresco:placeholderImage="@drawable/ic_default_user"
-            fresco:roundAsCircle="true"
-            android:src="@drawable/default_artist"/>
+            fresco:roundAsCircle="true" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -57,20 +58,22 @@
                 android:id="@+id/trends_detail_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ENDERHOSHI"/>
+                android:text="ENDERHOSHI" />
+
             <TextView
                 android:id="@+id/trends_detail_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
                 android:layout_toRightOf="@id/trends_detail_name"
-                android:text="分享单曲"/>
+                android:text="分享单曲" />
+
             <TextView
                 android:id="@+id/trends_detail_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/trends_detail_name"
-                android:text="2018-04-12 16:46"/>
+                android:textSize="14sp" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -78,7 +81,6 @@
         android:id="@+id/trends_detail_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_gravity="center"
         android:paddingBottom="16dp"
         android:paddingLeft="16dp"
@@ -88,20 +90,53 @@
         android:id="@+id/trends_detail_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="4dp"
+        android:background="@color/trends_text_background_color"
         android:paddingBottom="4dp"
-        android:paddingRight="8dp"
         android:paddingLeft="8dp"
-        android:background="@color/lite_gray"
-        android:textSize="12sp"/>
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/no_comment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="70dp"
         android:gravity="center_horizontal"
         android:padding="8dp"
-        android:text="还没有评论"/>
+        android:text="还没有评论"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/listview_comments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:visibility="visible"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray" />
+
+        <EditText
+            android:id="@+id/edittext_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_comment_edit"
+            android:hint="发表评论"
+            android:imeOptions="actionSend"
+            android:singleLine="true"
+            android:textSize="14sp" />
+    </LinearLayout>
 
 </LinearLayout>

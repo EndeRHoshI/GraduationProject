@@ -8,7 +8,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/theme_color">
+        android:background="?theme_color">
 
         <TextView
             android:id="@+id/textView"
@@ -37,7 +37,7 @@
             android:id="@+id/local_music"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/list_item_selector"
+            android:background="?android:selectableItemBackground"
             android:clickable="true">
 
             <ImageView
@@ -53,7 +53,7 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
                 android:text="@string/local_music"
-                android:textColor="@color/black" />
+                android:textColor="@color/night_day_color" />
 
             <TextView
                 android:id="@+id/local_music_num"
@@ -78,14 +78,16 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/lite_gray" />
+            android:layout_height="1px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray" />
 
         <LinearLayout
             android:id="@+id/recent_played"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/list_item_selector"
+            android:background="?android:selectableItemBackground"
             android:clickable="true">
 
             <ImageView
@@ -101,7 +103,7 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
                 android:text="@string/recent_played"
-                android:textColor="@color/black" />
+                android:textColor="@color/night_day_color" />
 
             <TextView
                 android:id="@+id/recent_played_num"
@@ -126,14 +128,16 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/lite_gray" />
+            android:layout_height="1px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray" />
 
         <LinearLayout
             android:id="@+id/my_collection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/list_item_selector"
+            android:background="?android:selectableItemBackground"
             android:clickable="true">
 
             <ImageView
@@ -149,7 +153,7 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
                 android:text="@string/my_collection"
-                android:textColor="@color/black" />
+                android:textColor="@color/night_day_color" />
 
             <TextView
                 android:id="@+id/my_collection_num"
@@ -174,14 +178,16 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/lite_gray" />
+            android:layout_height="1px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray" />
 
         <LinearLayout
             android:id="@+id/personal_song_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/list_item_selector"
+            android:background="?android:selectableItemBackground"
             android:clickable="true">
 
             <ImageView
@@ -198,7 +204,7 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
                 android:text="@string/personal_song_list"
-                android:textColor="@color/black" />
+                android:textColor="@color/night_day_color" />
 
             <TextView
                 android:id="@+id/personal_song_list_num"
@@ -223,8 +229,10 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/lite_gray" />
+            android:layout_height="1px"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:background="@color/gray" />
     </LinearLayout>
 
     <TextView

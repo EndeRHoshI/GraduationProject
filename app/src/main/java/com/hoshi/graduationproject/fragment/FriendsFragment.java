@@ -18,7 +18,6 @@ import com.hoshi.graduationproject.R;
 import com.hoshi.graduationproject.activity.FriendsTrendsActivity;
 import com.hoshi.graduationproject.activity.PlayActivity;
 import com.hoshi.graduationproject.activity.ShareActivity;
-import com.hoshi.graduationproject.adapter.FollowsAdapter;
 import com.hoshi.graduationproject.adapter.TrendsAdapter;
 import com.hoshi.graduationproject.model.FriendsTrends;
 import com.hoshi.graduationproject.storage.preference.Preferences;
@@ -58,11 +57,12 @@ public class FriendsFragment extends BaseFragment implements View.OnClickListene
         switch (msg.what) {
           case READY:
             TrendsAdapter mTrendsAdapter = new TrendsAdapter(mDatas, getContext());
-            mTrendsAdapter.setOnItemClickLitener(new FollowsAdapter.OnItemClickLitener() {
+            mTrendsAdapter.setOnItemClickLitener(new TrendsAdapter.OnItemClickLitener() {
               @Override
               public void onItemClick(View view, int position) {
                 FriendsTrends tempFriendsTrends = mDatas.get(position);
                 startActivity(new Intent(getContext(), FriendsTrendsActivity.class)
+                        .putExtra("trends_id", tempFriendsTrends.getTrends_id())
                         .putExtra("trends_avatar", tempFriendsTrends.getTrends_avatar())
                         .putExtra("trends_name", tempFriendsTrends.getTrends_name())
                         .putExtra("trends_type", tempFriendsTrends.getTrends_type())
@@ -164,7 +164,8 @@ public class FriendsFragment extends BaseFragment implements View.OnClickListene
         for (int i = 0; i < dataSuccessJson.length(); i++) {
           JSONObject tempTrends = dataSuccessJson.getJSONObject(i);
           FriendsTrends tempFriendsTrends = new FriendsTrends();
-          tempFriendsTrends.setTrends_avatar("http://cdn.aixifan.com/acfun-pc/2.0.97/img/niudan/niudango.png");
+          tempFriendsTrends.setTrends_id(tempTrends.getInt("id"));
+          tempFriendsTrends.setTrends_avatar(tempTrends.getString("avatar"));
           tempFriendsTrends.setTrends_name(tempTrends.getString("author_name"));
           tempFriendsTrends.setTrends_type("分享动态");
           tempFriendsTrends.setTrends_date(tempTrends.getString("date"));

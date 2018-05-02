@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".activity.PresonalActivity">
+
+    <FrameLayout
+        android:id="@+id/top_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="?theme_color">
+
+        <ImageView
+            android:id="@+id/edit_song_list_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            style="@style/top_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/edit_song_list" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/song_list_cover_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:text="@string/song_list_cover"
+            android:textColor="@color/black" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/song_list_cover"
+            android:layout_gravity="center_vertical"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            fresco:placeholderImage="@drawable/default_cover"
+            fresco:roundAsCircle="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:src="@drawable/ic_expand_arrow" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/lite_gray"/>
+
+    <LinearLayout
+        android:id="@+id/song_list_name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/song_list_name"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/song_list_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:textColor="@color/gray"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:src="@drawable/ic_expand_arrow"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/lite_gray"/>
+
+</LinearLayout>

@@ -64,6 +64,7 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setTheme(Preferences.getTheme());
     setContentView(R.layout.activity_friends);
 
     handler = new Handler() {
@@ -73,7 +74,7 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
           case GET_TRENDS_READY:
             changeUiType(GET_TRENDS_READY);
             TrendsAdapter mTrendsAdapter = new TrendsAdapter(mDatas, getBaseContext());
-            mTrendsAdapter.setOnItemClickLitener(new FollowsAdapter.OnItemClickLitener() {
+            mTrendsAdapter.setOnItemClickLitener(new TrendsAdapter.OnItemClickLitener() {
               @Override
               public void onItemClick(View view, int position) {
                 FriendsTrends tempFriendsTrends = (FriendsTrends)mDatas.get(position);
@@ -191,7 +192,7 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
         for (int i = 0; i < dataSuccessJson.length(); i++) {
           JSONObject tempTrends = dataSuccessJson.getJSONObject(i);
           FriendsTrends tempFriendsTrends = new FriendsTrends();
-          tempFriendsTrends.setTrends_avatar("http://cdn.aixifan.com/acfun-pc/2.0.97/img/niudan/niudango.png");
+          tempFriendsTrends.setTrends_avatar(tempTrends.getString("avatar"));
           tempFriendsTrends.setTrends_name(tempTrends.getString("author_name"));
           tempFriendsTrends.setTrends_type("分享动态");
           tempFriendsTrends.setTrends_date(tempTrends.getString("date"));
@@ -338,7 +339,7 @@ public class FriendsActivity extends AppCompatActivity implements View.OnClickLi
     // 使用setView()方法将布局显示到dialog
     alertDialogBuilder.setView(nameView);
 
-    final EditText userInput = (EditText) nameView.findViewById(R.id.change_profile_edit);
+    final EditText userInput = (EditText) nameView.findViewById(R.id.change_nickname_edit);
 
     userInput.setHint(R.string.friend_nicknam);
 

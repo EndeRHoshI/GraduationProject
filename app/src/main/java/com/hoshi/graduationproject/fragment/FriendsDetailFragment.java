@@ -85,11 +85,13 @@ public class FriendsDetailFragment extends AttachDialogFragment {
     aboutBundle.putInt("friend_sex", friend_sex);
     FriendsTrendsFragment mFriendsTrendsFragment = new FriendsTrendsFragment();
     FriendsAboutFragment mFriendsAboutFragment = new FriendsAboutFragment();
+    FriendsMusicFragment mFriendsMusicFragment = new FriendsMusicFragment();
+    mFriendsMusicFragment.setArguments(trendsBundle); // 传入参数bundle
     mFriendsAboutFragment.setArguments(aboutBundle);
     mFriendsTrendsFragment.setArguments(trendsBundle);
 
     Adapter adapter = new Adapter(getChildFragmentManager());
-    adapter.addFragment(new FriendsMusicFragment(), title[0]);
+    adapter.addFragment(mFriendsMusicFragment, title[0]);
     adapter.addFragment(mFriendsTrendsFragment, title[1]);
     adapter.addFragment(mFriendsAboutFragment, title[2]);
 

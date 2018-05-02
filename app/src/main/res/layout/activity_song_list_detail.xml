@@ -9,12 +9,11 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/theme_color"
-        android:paddingTop="20dp">
+        android:layout_height="40dp"
+        android:background="?theme_color">
 
         <ImageView
-            android:id="@+id/back_rank"
+            android:id="@+id/back_song_list_detail"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="left"
@@ -29,7 +28,7 @@
             android:text="@string/song_list" />
 
         <ImageView
-            android:id="@+id/loading_button"
+            android:id="@+id/list_detail_loading_button"
             style="@style/top_image_style"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -39,61 +38,79 @@
     </FrameLayout>
 
     <RelativeLayout
+        android:id="@+id/song_list_detail_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/theme_color">
+        android:background="?theme_color">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/simpleDraweeView_rank_avatar"
+            android:id="@+id/simpleDraweeView_list_cover"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="12dp"
-            fresco:pressedStateOverlayImage="@color/transparent_press" />
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="24dp"
+            fresco:placeholderImage="@drawable/default_cover"
+            fresco:placeholderImageScaleType="fitCenter" />
+
+        <ImageView
+            android:id="@+id/song_list_detail_setting"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignRight="@id/simpleDraweeView_list_cover"
+            android:layout_alignBottom="@id/simpleDraweeView_list_cover"
+            android:src="@drawable/ic_setting"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/simpleDraweeView_rank_avatar"
-            android:layout_marginBottom="6dp"
-            android:orientation="horizontal">
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/simpleDraweeView_list_cover"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/collect_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/song_list_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="16dp"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_folder_white"
-                android:gravity="center"
-                android:text="@string/collect"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/song_list_author"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/downloadButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/song_list_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_download_white"
-                android:gravity="center"
-                android:text="@string/download"
+                android:text="@string/add_collect"
                 android:textColor="@color/white" />
         </LinearLayout>
+
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/rank_song_list_loading"
+        android:id="@+id/song_list_detail_null_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="@string/loading"
+        android:text="@string/no_song_song_list"
         android:textColor="@color/gray"
         android:textSize="15sp" />
 
     <ListView
-        android:id="@+id/rank_songList"
+        android:id="@+id/song_list_detail_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        android:visibility="gone"></ListView>
+        android:visibility="gone" />
 
 </LinearLayout>

@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/theme_color">
+        android:background="?theme_color">
 
         <ImageView
             android:id="@+id/search_button"
@@ -38,7 +38,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,14 +57,14 @@
                 <View
                     android:layout_width="2dp"
                     android:layout_height="14dp"
-                    android:background="@color/theme_color"/>
+                    android:background="?theme_color"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:text="@string/official_rank"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/night_day_color"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -237,14 +238,14 @@
                 <View
                     android:layout_width="2dp"
                     android:layout_height="14dp"
-                    android:background="@color/theme_color"/>
+                    android:background="?theme_color"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:text="@string/global_rank"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/night_day_color"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -343,8 +344,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="6dp"
                     android:paddingTop="3dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -354,8 +354,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="6dp"
                     android:paddingTop="3dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -365,8 +364,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="6dp"
                     android:paddingTop="3dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
             </LinearLayout>
 
@@ -421,7 +419,6 @@
                         android:layout_weight="1"
                         android:paddingLeft="6dp"
                         android:paddingTop="3dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -432,7 +429,6 @@
                         android:layout_weight="1"
                         android:paddingLeft="6dp"
                         android:paddingTop="3dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -462,8 +458,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="6dp"
                     android:paddingTop="3dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -473,8 +468,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="6dp"
                     android:paddingTop="3dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -484,8 +478,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="6dp"
                     android:paddingTop="3dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
             </LinearLayout>
 
@@ -539,7 +532,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -549,7 +541,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -559,7 +550,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
                 </LinearLayout>
@@ -577,8 +567,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -587,8 +576,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -597,8 +585,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
             </LinearLayout>
 
@@ -652,7 +639,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -662,7 +648,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -672,7 +657,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
                 </LinearLayout>
@@ -690,8 +674,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -700,8 +683,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -710,8 +692,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
             </LinearLayout>
 
@@ -765,7 +746,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -775,7 +755,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -785,7 +764,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
                 </LinearLayout>
@@ -803,8 +781,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -813,8 +790,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -823,8 +799,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
             </LinearLayout>
 
@@ -878,7 +853,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -888,7 +862,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
 
@@ -898,7 +871,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="6dp"
-                        android:text="每天更新"
                         android:textColor="@color/white"
                         android:textSize="11sp"/>
                 </LinearLayout>
@@ -916,8 +888,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -926,8 +897,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -936,8 +906,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="6dp"
-                    android:text="每天更新"
-                    android:textColor="@color/black"
+                    android:textColor="@color/night_day_color"
                     android:textSize="12sp"/>
             </LinearLayout>
 

@@ -29,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setTheme(Preferences.getTheme());
     setContentView(R.layout.activity_register);
 
     et_phone            = findViewById(R.id.phone_edittext);
@@ -50,10 +51,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
       @Override
       public void requestSuccess(String result) throws Exception {
         JSONObject dataSuccessJson = new JSONObject(result);
-        JSONObject friendsJson = dataSuccessJson.getJSONObject("friends");
         boolean error = dataSuccessJson.getBoolean("error");
         String info = dataSuccessJson.getString("info");
         if (error) {
+          JSONObject friendsJson = dataSuccessJson.getJSONObject("friends");
           Preferences.saveNickname(dataSuccessJson.getString("nickname"));
           Preferences.savePhone(dataSuccessJson.getString("phone"));
           Preferences.saveId(dataSuccessJson.getInt("id"));

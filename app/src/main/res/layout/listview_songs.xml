@@ -13,7 +13,7 @@
         android:gravity="center"
         android:ems="3"
         android:text="01"
-        android:textColor="@color/theme_color"/>
+        android:textColor="?theme_color"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,8 +32,7 @@
                 android:layout_margin="3dp"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:text="只只"
-                android:textColor="@color/black"
+                android:textColor="@color/night_day_color"
                 android:textSize="15sp"/>
             <TextView
                 android:id="@+id/rank_songList_alias"
@@ -43,7 +42,6 @@
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:layout_marginLeft="3dp"
-                android:text="(电影《五十度飞》插曲)"
                 android:textColor="@color/gray"
                 android:textSize="15sp"/>
         </LinearLayout>
