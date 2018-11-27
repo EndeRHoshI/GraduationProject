@@ -1,9 +1,11 @@
 package com.hoshi.graduationproject.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +31,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class DiscoverFragment extends BaseFragment implements View.OnClickListener{
+public class DiscoverFragment extends BaseFragment implements View.OnClickListener {
 
   final int UPDATE_COVER = 1;
 
@@ -37,13 +39,14 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
   SimpleDraweeView mSimpleDraweeView[] = new SimpleDraweeView[24];
   TextView tv_updateFrequency[] = new TextView[24];
   TextView tv_name[] = new TextView[18];
-  String coverUrlArray[] = new String[24];
+  String coverUrlArray[] = new String[28];
   String rankName[] = new String[18];
-  String rankUpdateFrequency[] = new String[24];
-  int rankId[] = new int[24];
+  String rankUpdateFrequency[] = new String[28];
+  int rankId[] = new int[28];
 
   private Handler handler;
 
+  @SuppressLint("HandlerLeak")
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
     sendRequest();
@@ -51,8 +54,7 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
     handler = new Handler() {
       @Override
       public void handleMessage(Message msg) {
-        switch (msg.what)
-        {
+        switch (msg.what) {
           case UPDATE_COVER:
             loadData();//解析json数据
             break;
@@ -65,7 +67,7 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
   }
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+  public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     mRootView = inflater.inflate(R.layout.fragment_discover, container, false);
     return mRootView;
@@ -73,6 +75,7 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
 
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
     initPage();
     ClickManager.init(getActivity(), this, R.id.loading_button,
             R.id.search_button);
@@ -110,20 +113,19 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
       updateFrequencyIdArray[i] = getResources().getIdentifier("updateFrequency" + i, "id", mRootView.getContext().getPackageName());
     }
     for (int i = 0; i < 24; i++) {
-      mSimpleDraweeView[i] = (SimpleDraweeView) getActivity().findViewById(coverIdArray[i]);
-      if (i < 18)
-        tv_name[i] = (TextView) getActivity().findViewById(nameIdArray[i]);
-      tv_updateFrequency[i] = (TextView) getActivity().findViewById(updateFrequencyIdArray[i]);
+      if (getActivity() != null) {
+        mSimpleDraweeView[i] = getActivity().findViewById(coverIdArray[i]);
+
+        if (i < 18)
+          tv_name[i] = getActivity().findViewById(nameIdArray[i]);
+        tv_updateFrequency[i] = getActivity().findViewById(updateFrequencyIdArray[i]);
+      }
     }
   }
 
   public void loadData() {
     for (int i = 0; i < 24; i++) {
-      if (i == 0)
-        mSimpleDraweeView[i].setImageURI("http://ogtt75s5d.bkt.clouddn.com/ic_biaosheng.png");
-      else {
-        mSimpleDraweeView[i].setImageURI(coverUrlArray[i]);
-      }
+      mSimpleDraweeView[i].setImageURI(coverUrlArray[i]);
       if (i < 18)
         tv_name[i].setText(rankName[i]);
       tv_updateFrequency[i].setText(rankUpdateFrequency[i]);
@@ -131,19 +133,12 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
     for (int i = 0; i < 24; i++) {
       final int tempId = rankId[i];
       final String tempUrl;
-      if (i == 0) {
-        tempUrl = "http://ogtt75s5d.bkt.clouddn.com/ic_biaosheng.png";
-      } else {
-        tempUrl = coverUrlArray[i];
-      }
-      mSimpleDraweeView[i].setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-          Intent rankIntent = new Intent(getContext() ,RankDetailActivity.class);
-          rankIntent.putExtra("id", tempId);
-          rankIntent.putExtra("avatarUrl", tempUrl);
-          startActivity(rankIntent);
-        }
+      tempUrl = coverUrlArray[i];
+      mSimpleDraweeView[i].setOnClickListener(v -> {
+        Intent rankIntent = new Intent(getContext(), RankDetailActivity.class);
+        rankIntent.putExtra("id", tempId);
+        rankIntent.putExtra("avatarUrl", tempUrl);
+        startActivity(rankIntent);
       });
     }
   }
@@ -157,12 +152,15 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
     Call rankCall = mOkHttpClient.newCall(request);
     rankCall.enqueue(new Callback() {
       @Override
-      public void onFailure(Call failureCall, IOException e) {
+      public void onFailure(@NonNull Call failureCall, @NonNull IOException e) {
       }
 
       @Override
-      public void onResponse(Call responseCall, final Response response) throws IOException {
-        String htmlStr = response.body().string();
+      public void onResponse(@NonNull Call responseCall, @NonNull final Response response) throws IOException {
+        String htmlStr = null;
+        if (response.body() != null) {
+          htmlStr = response.body().string();
+        }
         try {
           JSONObject dataJson = new JSONObject(htmlStr);
           JSONArray rankArray = dataJson.getJSONArray("list");
@@ -178,6 +176,7 @@ public class DiscoverFragment extends BaseFragment implements View.OnClickListen
           message.what = UPDATE_COVER;
           handler.sendMessage(message);
         } catch (JSONException e) {
+          e.printStackTrace();
         }
       }
     });

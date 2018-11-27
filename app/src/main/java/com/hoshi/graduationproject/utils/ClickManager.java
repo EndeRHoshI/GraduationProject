@@ -32,22 +32,12 @@ public class ClickManager {
 
   private ClickManager() {}
 
-  private static interface ViewFinder<T> {
+  private interface ViewFinder<T> {
     View findView(T root, int viewId);
   }
 
-  private static ViewFinder<View> sViewRootViewFinder = new ViewFinder<View>() {
-    @Override
-    public View findView(View root, int viewId) {
-      return root.findViewById(viewId);
-    }
-  };
+  private static ViewFinder<View> sViewRootViewFinder = View::findViewById;
 
-  private static ViewFinder<Activity> sActivityRootViewFinder = new ViewFinder<Activity>() {
-    @Override
-    public View findView(Activity root, int viewId) {
-      return root.findViewById(viewId);
-    }
-  };
+  private static ViewFinder<Activity> sActivityRootViewFinder = Activity::findViewById;
 
 }

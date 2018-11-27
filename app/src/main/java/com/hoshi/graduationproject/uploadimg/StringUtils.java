@@ -1,10 +1,5 @@
 package com.hoshi.graduationproject.uploadimg;
 
-import com.qiniu.android.dns.util.Hex;
-
-import java.nio.charset.Charset;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 
 
@@ -32,7 +27,7 @@ public final class StringUtils {
     /**
      * @see #join(Object[] array, String sep, String prefix)
      */
-    public static String join(Collection list, String sep, String prefix) {
+    private static String join(Collection list, String sep, String prefix) {
         Object[] array = list == null ? null : list.toArray();
         return join(array, sep, prefix);
     }
@@ -55,7 +50,7 @@ public final class StringUtils {
      * @param prefix 前缀字符串
      * @return 连接好的新字符串
      */
-    public static String join(Object[] array, String sep, String prefix) {
+    private static String join(Object[] array, String sep, String prefix) {
         if (array == null) {
             return "";
         }
@@ -116,11 +111,11 @@ public final class StringUtils {
         return buf.toString();
     }
 
-    public static boolean isNullOrEmpty(String s) {
+    static boolean isNullOrEmpty(String s) {
         return s == null || "".equals(s);
     }
 
-    public static boolean inStringArray(String s, String[] array) {
+    static boolean inStringArray(String s, String[] array) {
         for (String x : array) {
             if (x.equals(s)) {
                 return true;
@@ -129,38 +124,12 @@ public final class StringUtils {
         return false;
     }
 
-    public static byte[] utf8Bytes(String data) {
+    static byte[] utf8Bytes(String data) {
         return data.getBytes(Constants.UTF_8);
     }
 
-    public static String utf8String(byte[] data) {
-        return new String(data, Constants.UTF_8);
-    }
-
-    public static String md5Lower(String src) throws NoSuchAlgorithmException {
-        MessageDigest digest = MessageDigest.getInstance("MD5");
-        digest.update(src.getBytes(Charset.forName("UTF-8")));
-        byte[] md5Bytes = digest.digest();
-        return Hex.encodeHexString(md5Bytes);
-    }
-    public static boolean isNotEmpty(String str) {
-        return ((str != null) && (str.trim().length() > 0));
-    }
     public static boolean isEmpty(String str) {
         return ((str == null) || (str.trim().length() == 0));
-    }
-
-    public static boolean isBlank(String str) {
-        int strLen;
-        if (str == null || (strLen = str.length()) == 0) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if (!Character.isWhitespace(str.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
     }
 }
 

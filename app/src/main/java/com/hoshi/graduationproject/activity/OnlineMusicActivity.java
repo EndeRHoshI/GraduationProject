@@ -1,5 +1,6 @@
 package com.hoshi.graduationproject.activity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -41,6 +42,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressLint("Registered")
 public class OnlineMusicActivity extends BaseActivity implements OnItemClickListener
         , OnMoreClickListener, AutoLoadListView.OnLoadListener {
   private static final int MUSIC_LIST_SIZE = 20;
@@ -73,6 +75,7 @@ public class OnlineMusicActivity extends BaseActivity implements OnItemClickList
     onLoad();
   }
 
+  @SuppressLint("InflateParams")
   private void initView() {
     vHeader = LayoutInflater.from(this).inflate(R.layout.activity_online_music_list_header, null);
     AbsListView.LayoutParams params = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ScreenUtils.dp2px(150));
@@ -160,11 +163,11 @@ public class OnlineMusicActivity extends BaseActivity implements OnItemClickList
   }
 
   private void initHeader() {
-    final ImageView ivHeaderBg = (ImageView) vHeader.findViewById(R.id.iv_header_bg);
-    final ImageView ivCover = (ImageView) vHeader.findViewById(R.id.iv_cover);
-    TextView tvTitle = (TextView) vHeader.findViewById(R.id.tv_title);
-    TextView tvUpdateDate = (TextView) vHeader.findViewById(R.id.tv_update_date);
-    TextView tvComment = (TextView) vHeader.findViewById(R.id.tv_comment);
+    final ImageView ivHeaderBg = vHeader.findViewById(R.id.iv_header_bg);
+    final ImageView ivCover = vHeader.findViewById(R.id.iv_cover);
+    TextView tvTitle = vHeader.findViewById(R.id.tv_title);
+    TextView tvUpdateDate = vHeader.findViewById(R.id.tv_update_date);
+    TextView tvComment = vHeader.findViewById(R.id.tv_comment);
     tvTitle.setText(mOnlineMusicList.getBillboard().getName());
     tvUpdateDate.setText(getString(R.string.recent_update, mOnlineMusicList.getBillboard().getUpdate_date()));
     tvComment.setText(mOnlineMusicList.getBillboard().getComment());
