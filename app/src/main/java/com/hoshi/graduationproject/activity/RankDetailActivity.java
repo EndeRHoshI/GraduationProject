@@ -1,5 +1,6 @@
 package com.hoshi.graduationproject.activity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -74,6 +75,7 @@ public class RankDetailActivity extends BaseActivity implements View.OnClickList
   private OnlineMusicAdapter mAdapter = new OnlineMusicAdapter(mMusicList);
   private AlertDialog songListPickDialog;
 
+  @SuppressLint("HandlerLeak")
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -106,20 +108,17 @@ public class RankDetailActivity extends BaseActivity implements View.OnClickList
             LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext());//设置布局管理器
             rv_add_to_song_list_recyclerView.setLayoutManager(layoutManager);//设置为垂直布局，这也是默认的
             mSongListAdapter = new SongListAdapter(mData, getBaseContext());
-            mSongListAdapter.setOnItemClickLitener(new SongListAdapter.OnItemClickLitener() {
-              @Override
-              public void onItemClick(View view, int position) {
-                SongList tempSongList = mData.get(position);
-                sendAddSongToSongListRequest(
-                        song_id,
-                        song_title,
-                        song_artist_name,
-                        song_alias,
-                        song_cover,
-                        song_duration,
-                        tempSongList.getList_id());
-                songListPickDialog.dismiss();
-              }
+            mSongListAdapter.setOnItemClickLitener((view, position) -> {
+              SongList tempSongList = mData.get(position);
+              sendAddSongToSongListRequest(
+                      song_id,
+                      song_title,
+                      song_artist_name,
+                      song_alias,
+                      song_cover,
+                      song_duration,
+                      tempSongList.getList_id());
+              songListPickDialog.dismiss();
             });
             rv_add_to_song_list_recyclerView.setAdapter(mSongListAdapter);
             break;
